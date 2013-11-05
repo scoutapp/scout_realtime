@@ -13,7 +13,8 @@ require 'json'
 require 'server_metrics'
 
 require 'scout_realtime/runner'
-require 'scout_realtime/web_server'
+require 'scout_realtime/web/app' # sinatra version
+# require 'scout_realtime/web_server'# embedded webrick version
 
 Thread.abort_on_exception=true
 

@@ -1,3 +1,5 @@
+# basic web server (no sinatra dependency). place this file in lib/scout_realtime for everything to work
+
 require "pathname"
 
 module Scout::Realtime

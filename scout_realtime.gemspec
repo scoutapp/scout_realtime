@@ -23,7 +23,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest-reporters"
   spec.add_development_dependency "awesome_print"
   spec.add_development_dependency "pry"
+  spec.add_development_dependency "sinatra-contrib"
 
   spec.add_runtime_dependency "server_metrics"
-
+  spec.add_runtime_dependency "sinatra"
 end
