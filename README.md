@@ -1,29 +1,18 @@
-# ScoutRealtime
+# Scout_realtime
 
-TODO: Write a gem description
+A stand-alone realtime view of critical server metrics and process information
 
-## Installation
+Start it:
 
-Add this line to your application's Gemfile:
+    scout_realtime
 
-    gem 'scout_realtime'
+By default, scout_realtime will create a logfile in ~/realtime.log
 
-And then execute:
+To log to STDOUT instead:
 
-    $ bundle
+    scout_realtime --console
 
-Or install it yourself as:
 
-    $ gem install scout_realtime
+Stop it:
 
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+    control-c

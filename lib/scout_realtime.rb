@@ -28,7 +28,7 @@ module Scout
 
     class Main
       INTERVAL=1
-      LOG_NAME="log.txt"
+      LOG_NAME="realtime.log"
 
       attr_accessor :running, :collector, :stats_thread
 
