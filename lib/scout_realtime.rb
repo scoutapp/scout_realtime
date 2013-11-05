@@ -2,6 +2,9 @@ require "scout_realtime/version"
 
 $LOAD_PATH << File.join(File.dirname(__FILE__))
 
+# only for development - load the server_metrics project code instead of the gem
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), "/../../rails/server_metrics/lib")
+
 require 'rubygems'
 require 'webrick'
 require 'erb'
@@ -73,7 +76,7 @@ module Scout
         trap 'INT' do
           server.shutdown
         end
-        start_thread
+        #start_thread
         server.start # blocking
       end
 

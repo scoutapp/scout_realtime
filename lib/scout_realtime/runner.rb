@@ -8,7 +8,8 @@ module Scout
         @latest_run = {}
         @num_runs=0
 
-        @collectors={:disks => ServerMetrics::Disk.new(), :cpu => ServerMetrics::Cpu.new(), :memory => ServerMetrics::Memory.new(), :network => ServerMetrics::Network.new(), :processes=>ServerMetrics::Processes.new()}
+        @collectors={:disks => ServerMetrics::Disk.new(), :cpu => ServerMetrics::Cpu.new(), :memory => ServerMetrics::Memory.new(), :network => ServerMetrics::Network.new()}
+        # , :processes=>ServerMetrics::Processes.new()
 
         @system_info = ServerMetrics::SystemInfo.to_h
       end
