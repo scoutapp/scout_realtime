@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH << File.join(File.dirname(__FILE__), *%w[.. lib])
+
+load File.join(File.dirname(__FILE__), *%w[.. lib scout_realtime.rb])
+opts={:stdout => ARGV.include?("--console")}
+
+Scout::Realtime::Main.instance(opts).go
+
