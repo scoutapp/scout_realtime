@@ -2,12 +2,8 @@
 
 $LOAD_PATH << File.join(File.dirname(__FILE__), *%w[.. lib])
 
-load File.join(File.dirname(__FILE__), *%w[.. lib scout_realtime.rb])
+load "scout_realtime.rb"
+
 opts={:stdout => ARGV.include?("--console")}
 
-#Scout::Realtime::Main.instance(opts).go
-
-# Run the app!
-#
-puts "Hello, you're running your web app from a gem!"
-Scout::Realtime::Webapp.run!
+Scout::Realtime::Main.instance(opts).go_sinatra

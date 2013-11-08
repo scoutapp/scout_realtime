@@ -1,0 +1,216 @@
+
+#cpu_modal table {
+  background: -webkit-gradient(linear, left top, left bottom, from(whiteSmoke), to(#eeedf1));
+  border: 1px solid #eaeaea;
+}
+
+#cpu_modal td {
+  background: #fff;
+  padding-top: 20px;
+}
+
+#cpu_modal th {
+  border-right: 1px solid #eaeaea;
+  vertical-align: top;
+  width: 20%;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+#cpu_modal th h3 {
+  color: #333;
+  font-size: 16px;
+}
+
+/** processes table **/
+
+#processes {
+  background: -webkit-gradient(linear, left top, left bottom, from(whiteSmoke), to(#eeedf1));
+}
+
+.system_list {width:100%}
+
+.system_list thead th {
+  font-size: 12px;
+  color: #9DB1BC;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eaeaea;
+  background: #fff;
+}
+
+.system_list td:first-child{
+  font-size: 14px;
+  color: #9DA3B6;
+  font-weight: bold;
+  background: #eeedf1;
+  width: 20%;
+  vertical-align: bottom;
+  background: transparent;
+  border-bottom-color: transparent;
+  border-left: 1px solid #eaeaea;
+
+}
+
+.system_list tr:last-child td:first-child{
+  border-bottom: 1px solid #eaeaea;
+}
+
+
+.system_list td {
+  color: #323232;
+  font-weight: 13px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 13px;
+  background: #fff;
+}
+
+.system_list td:last-child {
+  border-right: 1px solid #eaeaea;
+}
+
+.process_chart,.disk_chart {
+  display: inline-block;
+}
+
+.process_chart {
+  width: 150px;
+  height: 15px;
+}
+
+/* overview chart modals */
+
+.overview_modal{
+  cursor: default;
+  width: 955px;
+  border:1px solid #cecece;
+  border-radius: 5px;
+  /*	height:280px; */
+  position:absolute;
+  z-index:1100;
+  display:none;
+  background:white;
+  /*	padding:20px 25px;*/
+  top: 85px;
+  left:-10px;
+  box-shadow: 2px 2px 10px 2px #eaeaea;
+}
+
+.overview_modal .modal_close {
+  position:absolute;
+  top:-13px;
+  right:-13px;
+  cursor:pointer;
+}
+
+.overview_modal .arrow {
+  position: absolute;
+  top: -10px;
+  left: 50px;
+}
+
+.overview_modal h2 {
+  margin: 10px 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 18px;
+}
+
+.overview_modal h2 span {
+  float: right;
+  font-size: 14px;
+  padding-top: 2px;
+}
+
+.overview_modal #memory_modal_chart {
+  padding:20px 25px;
+}
+
+#disks_modal table#disks, #network_modal table#network_devices{
+  margin: 20px 25px;
+  width: 892px;
+}
+
+.system_list .hover_details {
+  color: #999;
+  margin: 0;
+  font-size: 10px;
+  line-height: 100%;
+  opacity: 0;
+}
+
+.overview_modal .system_list td:not(:first-child):not(:last-child) {
+  cursor: pointer
+}
+
+.overview_modal .system_list td span {
+  float: right;
+  padding-top: 32px;
+}
+
+
+.overview_modal .system_list td:last-child {
+  padding-top: 40px;
+  padding-right: 0;
+}
+
+
+.overview_modal table.system_list td {
+  border-width: 0 0 1px 0;
+  vertical-align: top;
+}
+
+.overview_modal table.system_list td:first-child {
+  padding-top: 47px;
+}
+
+
+/** process/plugin toggle */
+
+#process_plugin_toggle a.active {
+  text-decoration: none;
+  border-bottom: 5px solid lightgray;
+}
+
+#process_plugin_toggle a:hover {
+  background: transparent;
+  color: #000;
+}
+
+h2#process_plugin_toggle a {
+  color: #333;
+  padding: 0px 5px 5px 5px;
+}
+
+#process_plugin_toggle a:first-child {
+  margin-right: 20px;
+}
+
+/* flatter button dropdown */
+
+.button_dropdown {
+  /*	float: right;
+    margin-right: 10px;*/
+  position: relative;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  height: 20px;
+  border: 1px solid #CCC;
+  /* 	border-left-color: #B3B3B3;
+    border-right-color: #B3B3B3;
+    border-bottom-color: #999; */
+  border: 1px solid #cecece;
+  background: url(/images/charts/select_arrow.png) no-repeat right top, #f8f8f8;
+  background: url(/images/charts/select_arrow.png) no-repeat right top, #f8f8f8 ;
+  width:105px;
+  cursor:pointer;
+}
+
+.button_dropdown:not(.open):hover {
+  border: 1px solid #999;
+  border-left-color: #7F7F7F;
+  border-right-color: #7F7F7F;
+  border-bottom-color: #666;
+  background: url(/images/charts/select_arrow.png) no-repeat right top,-webkit-gradient(linear, left top, left bottom, color-stop(0.2, #fff), color-stop(0.9, #E6E6E6)) ;
+}

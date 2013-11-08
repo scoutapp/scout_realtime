@@ -1,0 +1,70 @@
+<div id="header">
+  <div class="content" style="padding-top: 5px">
+    <img src="/images/scout66x66.png" style="height:30px;vertical-align: bottom">
+    <span style="font-size:22px; line-height: 30px;margin-left:10px"><%= ServerMetrics::SystemInfo.hostname %> </span>
+
+    <a class="on" id="toggle_data" href="javascript:toggleData()" style="margin-top: 8px;font-size:smaller">data
+      on/off</a>
+  </div>
+</div>
+
+<div class="content">
+  <br><br>
+
+  <div class="section">
+    <h2>CPU</h2>
+
+    <div id="cpu_chart_container" class="chart_container">
+      <div class="old-chart">
+      </div>
+      <div class="y_axis"></div>
+      <div class="chart_legend_container">
+        <div class="chart_legend"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Memory</h2>
+
+    <div id="memory_chart_container" class="chart_container">
+      <div class="old-chart">
+      </div>
+      <div class="y_axis"></div>
+      <div class="chart_legend_container">
+        <div class="chart_legend"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Disks</h2>
+
+    <% @disks.each do |disk| %>
+      <h3><%= disk %></h3>
+      <div class="chart" data-type="disk" data-name="<%=disk%>"></div>
+    <% end %>
+  </div>
+
+
+  <div class="section">
+    <h2>Network Devices</h2>
+
+    <% @network.each do |network| %>
+      <h3><%= network %></h3>
+      <div class="chart" data-type="network" data-name="<%=network%>"></div>
+    <% end %>
+
+  </div>
+</div>
+
+<div id="footer">
+  <div class="content" style="padding-top: 10px; text-align: center">
+    <%= ServerMetrics::SystemInfo.os %> |
+    <%= ServerMetrics::SystemInfo.architecture %> |
+    <%= ServerMetrics::SystemInfo.os_version %> |
+    <%= ServerMetrics::SystemInfo.num_processors %> processor(s)
+  </div>
+</div>
+
+<script src="/javascripts/application.js"></script>

@@ -1,0 +1,105 @@
+* {
+  font-family: "Proxima Nova";
+}
+
+html {
+  /*background-color: #f3f2f7; */
+}
+
+body {
+  margin: 0
+}
+
+#header {
+  background-color: #fbfbfd;
+  height: 40px;
+  border-bottom: 1px solid #dadbdd;
+  color: #888888;
+}
+
+#footer {
+  background-color: #fbfbfd;
+  height: 40px;
+  border-top: 1px solid #dadbdd;
+  position: fixed;
+  bottom: 0;
+  z-index: 999999;
+  width: 100%;
+  color: #888888;
+}
+
+.section {
+  clear:both;
+}
+
+
+.chart_container {
+  float: left;
+  position: relative;
+}
+
+.old-chart {
+  display: inline-block;
+  position: relative;
+  left: 29px
+}
+
+.y_axis {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  left: 0px;
+}
+
+.chart_legend {
+  display: inline-block;
+  position: relative;
+  left: 40px;
+  background: transparent;
+}
+
+.chart_legend .label {
+  color: gray;
+}
+
+.chart_legend_container {
+  position: absolute;
+  right: 0;
+  bottom: -20px;
+  width: 0;
+}
+
+.on {
+  color: darkgreen;
+}
+
+#toggle_data {
+  float: right
+}
+
+.content {
+  width: 900px;
+  margin: 0 auto 0 auto;
+  position: relative;
+}
+
+.x.axis line {
+  shape-rendering: auto;
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+svg {
+  font: 10px sans-serif;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
