@@ -1,17 +1,18 @@
 require 'sinatra'
-require 'sinatra/reloader' if development?
+require 'sinatra/reloader' if ENV["RACK_ENV"].to_s == "development"
 require 'ostruct'
 
 class Scout::Realtime::WebApp < Sinatra::Base
-
-  configure :development do
-    register Sinatra::Reloader
-  end
 
   set :port, 5555
   set :static, true                             # set up static file routing
   set :public_dir, File.expand_path('../web', __FILE__) # set up the static dir (with images/js/css inside)
   set :views,  File.expand_path('../web/views', __FILE__) # set up the views dir
+  set :environment, ENV["RACK_ENV"] && ENV["RACK_ENV"] != '' ? ENV["RACK_ENV"] : :production
+
+  configure :development do
+    register Sinatra::Reloader
+  end
 
   get '/' do
     latest_run = Scout::Realtime::Main.instance.collector.latest_run
