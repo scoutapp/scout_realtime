@@ -30,7 +30,7 @@ module Scout
         @stats_thread = Thread.new do
           while (@running) do
             @collector.run
-            logger.info("collector thread run ##{@collector.num_runs} ") if @collector.num_runs.to_f % 50.0 == 0 || @collector.num_runs == 1
+            logger.info("collector thread run ##{@collector.num_runs} ")  if @collector.num_runs.to_f % 50.0 == 2 || @collector.num_runs == 1
             sleep INTERVAL
           end
         end
@@ -44,8 +44,9 @@ module Scout
 
       def go_sinatra
         @collector.run # sets up the latest_run so we can use it to render the main page
-        @collector.latest_run=DATA_FOR_TESTING.first
+        #@collector.latest_run=DATA_FOR_TESTING.first
         logger.info("starting web server ")
+        start_thread
         Scout::Realtime::WebApp.run!
       end
 

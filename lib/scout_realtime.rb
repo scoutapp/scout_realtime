@@ -2,8 +2,8 @@ require "scout_realtime/version"
 
 $LOAD_PATH << File.join(File.dirname(__FILE__))
 
-# only for development - load the server_metrics project code instead of the gem
-$LOAD_PATH.unshift File.join(File.dirname(__FILE__), "/../../rails/server_metrics/lib")
+# Uncomment this to load the server_metrics project code instead of the gem. Obviously, for development only
+# $LOAD_PATH.unshift File.join(File.dirname(__FILE__), "/../../rails/server_metrics/lib")
 
 # load sinatra, etc in vendor instead of from gems. Just remove this (and add depedencies in gemspec) to use gems instead
 vendor_path=File.expand_path(File.join(File.dirname(__FILE__),"vendor"))

@@ -8,24 +8,40 @@ html {
 
 body {
   margin: 0
+
 }
 
+
 #header {
-  background-color: #fbfbfd;
-  height: 40px;
-  border-bottom: 1px solid #dadbdd;
-  color: #888888;
+  background: linear-gradient(left bottom, #295399 24%, #4B6BBD 57%);
+  background: -webkit-gradient(linear,left bottom,right top,color-stop(0.24, #295399),color-stop(0.57, #4B6BBD));
+  background: -moz-linear-gradient(left bottom, #295399 24%, #4B6BBD 57%);
+  background: -ms-linear-gradient(left bottom, #295399 24%, #4B6BBD 57%);
+
+  height: 33px;
+  position: fixed;
+  z-index: 999999;
+  color: #eee;
+  width: 100%;
+
+  border-bottom: solid 1px #444;
+  top:0;
 }
 
 #footer {
-  background-color: #fbfbfd;
-  height: 40px;
-  border-top: 1px solid #dadbdd;
+  background: linear-gradient(left bottom, #295399 24%, #4B6BBD 57%);
+  background: -webkit-gradient(linear,left bottom,right top,color-stop(0.24, #295399),color-stop(0.57, #4B6BBD));
+  background: -moz-linear-gradient(left bottom, #295399 24%, #4B6BBD 57%);
+  background: -ms-linear-gradient(left bottom, #295399 24%, #4B6BBD 57%);
+
+  height: 33px;
   position: fixed;
-  bottom: 0;
   z-index: 999999;
+  color: #eee;
   width: 100%;
-  color: #888888;
+
+  border-top: solid 1px #444;
+  bottom:0;
 }
 
 .section {
@@ -34,14 +50,16 @@ body {
 
 
 .chart_container {
-  float: left;
   position: relative;
 }
 
-.old-chart {
+.chart {
   display: inline-block;
   position: relative;
-  left: 29px
+  left: 29px;
+  height:80px;
+  width:100%;
+  background: #eee;
 }
 
 .y_axis {
@@ -49,7 +67,7 @@ body {
   top: 0;
   bottom: 0;
   width: 30px;
-  left: 0px;
+  left: 30px;
 }
 
 .chart_legend {
@@ -66,12 +84,16 @@ body {
 .chart_legend_container {
   position: absolute;
   right: 0;
-  bottom: -20px;
+  bottom: 0px;
   width: 0;
 }
 
+.toggle {
+  color:#eee;
+}
+
 .on {
-  color: darkgreen;
+  font-weight: bold;
 }
 
 #toggle_data {

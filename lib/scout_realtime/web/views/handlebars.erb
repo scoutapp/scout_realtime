@@ -9,8 +9,7 @@
   <script>
     function refresh() {
       $.getJSON("/stats.json", function (d) {
-        server_metrics =d;
-        $("#data").text(JSON.stringify(d))
+        server_metrics = d;
 });
 }
 $(function(){

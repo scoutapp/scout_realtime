@@ -14,8 +14,9 @@ class Scout::Realtime::WebApp < Sinatra::Base
   set :views,  File.expand_path('../web/views', __FILE__) # set up the views dir
 
   get '/' do
-    @disks = Scout::Realtime::Main.instance.collector.latest_run['disks'].keys.sort
-    @network = Scout::Realtime::Main.instance.collector.latest_run['network'].keys.sort
+    latest_run = Scout::Realtime::Main.instance.collector.latest_run
+    @disks = (latest_run[:disks] ||{}).keys.sort
+    @network = (latest_run[:network] ||{}).keys.sort
     erb :index
   end
 
