@@ -8,9 +8,9 @@ class Scout::Realtime::WebApp < Sinatra::Base
   set :static, true                             # set up static file routing
   set :public_dir, File.expand_path('../web', __FILE__) # set up the static dir (with images/js/css inside)
   set :views,  File.expand_path('../web/views', __FILE__) # set up the views dir
-  set :environment, ENV["RACK_ENV"] && ENV["RACK_ENV"] != '' ? ENV["RACK_ENV"] : :production
 
   configure :development do
+    puts "using Sinatra::Reloader for development"
     register Sinatra::Reloader
   end
 
