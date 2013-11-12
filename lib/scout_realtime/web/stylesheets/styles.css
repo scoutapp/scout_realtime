@@ -13,11 +13,7 @@ body {
 
 
 #header {
-  background: linear-gradient(left bottom, #295399 24%, #4B6BBD 57%);
-  background: -webkit-gradient(linear,left bottom,right top,color-stop(0.24, #295399),color-stop(0.57, #4B6BBD));
-  background: -moz-linear-gradient(left bottom, #295399 24%, #4B6BBD 57%);
-  background: -ms-linear-gradient(left bottom, #295399 24%, #4B6BBD 57%);
-
+  background-color: #295399;
   height: 33px;
   position: fixed;
   z-index: 999999;
@@ -29,10 +25,7 @@ body {
 }
 
 #footer {
-  background: linear-gradient(left bottom, #295399 24%, #4B6BBD 57%);
-  background: -webkit-gradient(linear,left bottom,right top,color-stop(0.24, #295399),color-stop(0.57, #4B6BBD));
-  background: -moz-linear-gradient(left bottom, #295399 24%, #4B6BBD 57%);
-  background: -ms-linear-gradient(left bottom, #295399 24%, #4B6BBD 57%);
+  background-color: #295399;
 
   height: 33px;
   position: fixed;
@@ -88,11 +81,15 @@ svg {
 
 /* main table */
 
+.alpha {
+  border-bottom: 4px solid #9DB1BC;
+}
+
 .alpha td.icon {
   padding: 20px 0 10px 20px;
 }
 .alpha table td {
-  padding:10px;
+  padding:10px 5px;
 }
 
 
@@ -103,12 +100,12 @@ svg {
 }
 
 .chart_container {
+  padding-right:20px;
 }
 
 .chart {
-  height:80px;
+  height:70px;
   width:100%;
-  background: #eee;
 }
 
 .y_axis {

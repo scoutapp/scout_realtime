@@ -28,10 +28,11 @@
         </table>
       </td>
     </tr>
+  </table>
 
-
+  <table class="alpha">
     <tr>
-      <td width="50px" valign=top  class="icon">
+      <td width="50px" valign=top class="icon">
         <img src="/images/memory.png" width="60">
       </td>
       <td width="*">
@@ -47,32 +48,34 @@
         </table>
       </td>
     </tr>
+  </table>
 
-    <tr>
-      <td width="50px" valign=top class="icon">
-        <img src="/images/disk.png" width="60">
-      </td>
-      <td width="*">
-        <% @disks.each do |disk| %>
-        <table width="100%">
-          <tr>
-            <td width="50%">
-              <%= erb :graph, :locals => {:chart_type => "disks_utilization", :chart_instance_name => disk} %>
-            </td>
-            <td width="50%">
-              <%= erb :graph, :locals => {:chart_type => "disks_read_write_kbs", :chart_instance_name => disk} %>
-            </td>
-          </tr>
-          <tr>
-            <td width="50%">
-              <%= erb :graph, :locals => {:chart_type => "disks_read_write", :chart_instance_name => disk} %>
-            </td>
-          </tr>
-        </table>
-        <%end%>
-      </td>
-    </tr>
+  <% @disks.each do |disk| %>
+    <table class="alpha">
+      <tr>
+        <td width="50px" valign=top class="icon">
+          <img src="/images/disk.png" width="60">
+        </td>
+        <td width="*">
+          <table width="100%">
+            <tr>
+              <td width="33%">
+                <%= erb :graph, :locals => {:chart_type => "disks_utilization", :chart_instance_name => disk} %>
+              </td>
+              <td width="33%">
+                <%= erb :graph, :locals => {:chart_type => "disks_read_write_kbs", :chart_instance_name => disk} %>
+              </td>
+              <td width="33%">
+                <%= erb :graph, :locals => {:chart_type => "disks_read_write", :chart_instance_name => disk} %>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  <% end %>
 
+  <table class="alpha">
     <tr>
       <td width="50px" valign=top class="icon">
         <img src="/images/network.png" width="60">
@@ -89,10 +92,12 @@
               </td>
             </tr>
           </table>
-        <%end%>
+        <% end %>
       </td>
     </tr>
+  </table>
 
+  <table class="alpha">
     <tr>
       <td width="50px" valign=top class="icon">
         <img src="/images/terminal.png" width="60">
@@ -102,7 +107,6 @@
       </td>
     </tr>
   </table>
-
 </div>
 
 
