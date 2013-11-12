@@ -8,40 +8,103 @@
   </div>
 </div>
 
-<div class="content" style="margin-top: 45px;margin-bottom:45px">
-  <div class="section">
-    <h2>CPU</h2>
-    <%= erb :graph, :locals => {:chart_type => "cpu_load", :chart_instance_name => ""} %>
-    <%= erb :graph, :locals => {:chart_type => "cpu_io_wait", :chart_instance_name => ""} %>
-  </div>
+<div style="margin: 45px 0px; width:100%;">
 
-  <div class="section">
-    <h2>Memory</h2>
-    <%= erb :graph, :locals => {:chart_type => "memory_swap_used_percent", :chart_instance_name => ""} %>
-    <%= erb :graph, :locals => {:chart_type => "memory", :chart_instance_name => ""} %>
-  </div>
+  <table class="alpha">
+    <tr>
+      <td width="50px" valign=top class="icon">
+        <img src="/images/cpu.png" width="60">
+      </td>
+      <td width="*">
+        <table width="100%">
+          <tr>
+            <td width="50%">
+              <%= erb :graph, :locals => {:chart_type => "cpu_load", :chart_instance_name => ""} %>
+            </td>
+            <td width="50%">
+              <%= erb :graph, :locals => {:chart_type => "cpu_io_wait", :chart_instance_name => ""} %>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
 
-  <div class="section">
-    <h2>Disks</h2>
-    <% @disks.each do |disk| %>
-      <h3><%= disk %></h3>
-      <%= erb :graph, :locals => {:chart_type => "disks_utilization", :chart_instance_name => disk} %>
-      <%= erb :graph, :locals => {:chart_type => "disks_read_write_kbs", :chart_instance_name => disk} %>
-      <%= erb :graph, :locals => {:chart_type => "disks_read_write", :chart_instance_name => disk} %>
-    <% end %>
-  </div>
 
-  <div class="section">
-    <h2>Network Devices</h2>
+    <tr>
+      <td width="50px" valign=top  class="icon">
+        <img src="/images/memory.png" width="60">
+      </td>
+      <td width="*">
+        <table width="100%">
+          <tr>
+            <td width="50%">
+              <%= erb :graph, :locals => {:chart_type => "memory_swap_used_percent", :chart_instance_name => ""} %>
+            </td>
+            <td width="50%">
+              <%= erb :graph, :locals => {:chart_type => "memory", :chart_instance_name => ""} %>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
 
-    <% @network.each do |network| %>
-      <h3><%= network %></h3>
-      <%= erb :graph, :locals => {:chart_type => "network_bytes", :chart_instance_name => network} %>
-      <%= erb :graph, :locals => {:chart_type => "network_packets", :chart_instance_name => network} %>
-    <% end %>
+    <tr>
+      <td width="50px" valign=top class="icon">
+        <img src="/images/disk.png" width="60">
+      </td>
+      <td width="*">
+        <% @disks.each do |disk| %>
+        <table width="100%">
+          <tr>
+            <td width="50%">
+              <%= erb :graph, :locals => {:chart_type => "disks_utilization", :chart_instance_name => disk} %>
+            </td>
+            <td width="50%">
+              <%= erb :graph, :locals => {:chart_type => "disks_read_write_kbs", :chart_instance_name => disk} %>
+            </td>
+          </tr>
+          <tr>
+            <td width="50%">
+              <%= erb :graph, :locals => {:chart_type => "disks_read_write", :chart_instance_name => disk} %>
+            </td>
+          </tr>
+        </table>
+        <%end%>
+      </td>
+    </tr>
 
-  </div>
+    <tr>
+      <td width="50px" valign=top class="icon">
+        <img src="/images/network.png" width="60">
+      </td>
+      <td width="*">
+        <% @network.each do |network| %>
+          <table width="100%">
+            <tr>
+              <td width="50%">
+                <%= erb :graph, :locals => {:chart_type => "network_bytes", :chart_instance_name => network} %>
+              </td>
+              <td width="50%">
+                <%= erb :graph, :locals => {:chart_type => "network_packets", :chart_instance_name => network} %>
+              </td>
+            </tr>
+          </table>
+        <%end%>
+      </td>
+    </tr>
+
+    <tr>
+      <td width="50px" valign=top class="icon">
+        <img src="/images/terminal.png" width="60">
+      </td>
+      <td width="*">
+
+      </td>
+    </tr>
+  </table>
+
 </div>
+
 
 <div id="footer">
   <div class="content" style="padding-top: 10px; text-align: center">
@@ -53,7 +116,3 @@
 </div>
 
 <script src="/javascripts/application.js"></script>
-
-<script>
-
-</script>

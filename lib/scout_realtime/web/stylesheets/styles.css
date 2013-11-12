@@ -48,46 +48,6 @@ body {
   clear:both;
 }
 
-
-.chart_container {
-  position: relative;
-}
-
-.chart {
-  display: inline-block;
-  position: relative;
-  left: 29px;
-  height:80px;
-  width:100%;
-  background: #eee;
-}
-
-.y_axis {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 30px;
-  left: 30px;
-}
-
-.chart_legend {
-  display: inline-block;
-  position: relative;
-  left: 40px;
-  background: transparent;
-}
-
-.chart_legend .label {
-  color: gray;
-}
-
-.chart_legend_container {
-  position: absolute;
-  right: 0;
-  bottom: 0px;
-  width: 0;
-}
-
 .toggle {
   color:#eee;
 }
@@ -124,4 +84,59 @@ svg {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
+}
+
+/* main table */
+
+.alpha td.icon {
+  padding: 20px 0 10px 20px;
+}
+.alpha table td {
+  padding:10px;
+}
+
+
+/* chart and legend */
+
+.alpha {
+  width:100%;
+}
+
+.chart_container {
+}
+
+.chart {
+  height:80px;
+  width:100%;
+  background: #eee;
+}
+
+.y_axis {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  left: 30px;
+}
+
+.chart_container .latest_value {
+  float:right;
+  color:dimgray;
+  font-size:20px;
+}
+
+.rickshaw_legend {
+  padding:2px 5px;
+  background:transparent;
+  float:left;
+}
+
+.rickshaw_legend li.line {
+  float:left;
+  clear:none;
+  line-height: 14px;
+}
+
+.rickshaw_legend li.line .label {
+  color:dimgray;
 }
