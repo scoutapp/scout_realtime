@@ -75,13 +75,13 @@
     </table>
   <% end %>
 
-  <table class="alpha">
-    <tr>
-      <td width="50px" valign=top class="icon">
-        <img src="/images/network.png" width="60">
-      </td>
-      <td width="*">
-        <% @network.each do |network| %>
+  <% @network.each do |network| %>
+    <table class="alpha">
+      <tr>
+        <td width="50px" valign=top class="icon">
+          <img src="/images/network.png" width="60">
+        </td>
+        <td width="*">
           <table width="100%">
             <tr>
               <td width="50%">
@@ -92,23 +92,33 @@
               </td>
             </tr>
           </table>
-        <% end %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+
+
+  <script id="process-template" type="text/x-handlebars-template">
+    <tr class="process_row" data-cmd="{{cmd}}">
+      <td>{{cmd}}</td>
+      <td>
+        <div class="process_chart" data-metric="count"></div>
+        <span class="current_count">{{count}}</span>
+      </td>
+      <td>
+        <div class="process_chart" data-metric="cpu"></div>
+        <span class="current_cpu">{{cpu}}</span>
+      </td>
+      <td>
+        <div class="process_chart" data-metric="memory"></div>
+        <span class="current_memory">{{memory}}</span>
       </td>
     </tr>
-  </table>
+  </script>
 
-  <table class="alpha">
-    <tr>
-      <td width="50px" valign=top class="icon">
-        <img src="/images/terminal.png" width="60">
-      </td>
-      <td width="*">
+  <%= erb :processes %>
 
-      </td>
-    </tr>
-  </table>
 </div>
-
 
 <div id="footer">
   <div class="content" style="padding-top: 10px; text-align: center">

@@ -92,6 +92,14 @@ svg {
   padding:10px 5px;
 }
 
+/* process chart */
+
+.process_chart {
+  width:160px;
+  height:20px;
+  display:inline-block;
+}
+
 
 /* chart and legend */
 
