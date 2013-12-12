@@ -1,23 +1,25 @@
 require 'sinatra'
-require 'sinatra/reloader' # if ENV["RACK_ENV"].to_s == "development"
-require "sinatra/content_for"
+if ENV["RACK_ENV"].to_s == "development"
+  require 'sinatra/reloader'
+  require "sinatra/content_for"
+end
 require 'ostruct'
 
 class Scout::Realtime::WebApp < Sinatra::Base
 
+  set :environment, ENV["RACK_ENV"].to_s == "development" ? :development : :production
   set :port, 5555
   set :static, true # set up static file routing
   set :public_dir, File.expand_path('../web', __FILE__) # set up the static dir (with images/js/css inside)
   set :views, File.expand_path('../web/views', __FILE__) # set up the views dir
   set :bind, "0.0.0.0" # necessary for running on vagrant
 
-  helpers Sinatra::ContentFor
+  #helpers Sinatra::ContentFor
 
   configure :development do
     puts "using Sinatra::Reloader for development"
     register Sinatra::Reloader
   end
-
 
   helpers do
     def precision(number, precision=0)
