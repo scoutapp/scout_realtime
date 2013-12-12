@@ -10,17 +10,21 @@ module Scout
 
       def initialize(opts={})
         home_dir_path = File.expand_path("~")
-        if opts[:stdout]
-          puts " ** Initializing. cntl-c to stop. Logging to STDOUT **"
-          Scout::Realtime::logger=Logger.new(STDOUT)
-        else
-          puts " ** Initializing. cntl-c to stop. See logs in #{home_dir_path}/ **"
-          Scout::Realtime::logger=Logger.new(File.join(home_dir_path, LOG_NAME))
-        end
+        Scout::Realtime::logger=Logger.new(STDOUT)
+
+        # from before adding dante
+        #if opts[:stdout]
+        #  puts " ** Initializing. cntl-c to stop. Logging to STDOUT **"
+        #  Scout::Realtime::logger=Logger.new(STDOUT)
+        #else
+        #  puts " ** Initializing. cntl-c to stop. See logs in #{home_dir_path}/ **"
+        #  Scout::Realtime::logger=Logger.new(File.join(home_dir_path, LOG_NAME))
+        #end
 
         @home_dir = File.exist?(home_dir_path) ? File.new(home_dir_path) : Dir.mkdir(home_dir_path)
         @stats_thread = Thread.new {}
         @collector = Scout::Realtime::Runner.new
+        @opts=opts
       end
 
       def start_thread
@@ -47,7 +51,7 @@ module Scout
         #@collector.latest_run=DATA_FOR_TESTING.first
         logger.info("starting web server ")
         start_thread
-        Scout::Realtime::WebApp.run!
+        Scout::Realtime::WebApp.run!(:port=>@opts[:port])
       end
 
       def go_webrick

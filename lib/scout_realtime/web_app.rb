@@ -8,7 +8,7 @@ require 'ostruct'
 class Scout::Realtime::WebApp < Sinatra::Base
 
   set :environment, ENV["RACK_ENV"].to_s == "development" ? :development : :production
-  set :port, 5555
+  # set :port, 5555 -- not needed with WebApp.run!(:port=>@opts[:port]) called in main.rb
   set :static, true # set up static file routing
   set :public_dir, File.expand_path('../web', __FILE__) # set up the static dir (with images/js/css inside)
   set :views, File.expand_path('../web/views', __FILE__) # set up the views dir

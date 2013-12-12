@@ -1,9 +1,12 @@
 #!/usr/bin/env ruby
 
 $LOAD_PATH << File.join(File.dirname(__FILE__), *%w[.. lib])
-
 load "scout_realtime.rb"
+require "dante"
 
-opts={:stdout => ARGV.include?("--console")}
+Dante.run('scout_realtime') do |opts|
+  opts[:port] ||= "5555"
+  # opts: host, pid_path, port, daemonize, user, group
+  Scout::Realtime::Main.instance(opts).go_sinatra
+end
 
-Scout::Realtime::Main.instance(opts).go_sinatra
