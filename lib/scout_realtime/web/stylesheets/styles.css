@@ -8,9 +8,90 @@ html {
 
 body {
   margin: 0
-
 }
 
+.left_column {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width:230px;
+  border-right: 1px solid #eee;
+  padding:5px 10px 5px;
+}
+
+.right_column {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 250px;
+  padding:5px
+}
+
+/* metric list */
+
+.left_column h3 {
+  margin:4px 0 2px 0;
+  font-size:15px;
+}
+
+ul.metric_selection {
+  list-style-type: none;
+  padding:0;
+  margin: 0 0 0 10px;
+}
+
+ul.metric_selection svg {
+  float:right;
+}
+
+ul.metric_selection li {
+  font-size:12px;
+  line-height: 14px;
+}
+
+
+/* sparklines */
+
+svg.sparkline {
+  width: 80px;
+  height: 12px;
+  display: block; /* without this, firefox will return the width as 100 */
+}
+
+.plugin_box svg.sparkline g.layer {
+  fill: #AFD9AF;
+}
+
+.plugin_box svg.sparkline .bottom_dash {
+  stroke: #AFD9AF;
+}
+
+/* line charts for descriptors aren't used. left in case we switch back */
+
+svg.sparkline .area {
+  fill: #65A7DE;
+  /*	opacity: 0;*/
+}
+
+.plugin_box:hover svg.sparkline .area {
+  fill: #65A7DE;
+  opacity: 0.3;
+}
+
+
+svg.sparkline .line {
+  fill: none;
+  stroke: #65A7DE;
+  stroke-width: 1px;
+  /*	opacity: 0;*/
+}
+
+.plugin_box:hover svg.sparkline .line {
+  opacity: 0.4;
+}
+
+
+/* ---------------------------------------------------- old ------------------------------------------------ */
 
 #header {
   background-color: #295399;

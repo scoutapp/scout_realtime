@@ -1,0 +1,5 @@
+<ul class="metric_selection">
+  <% fields.each do |field| %>
+    <li><svg id="descriptor_chart_<%= field.name %>" class="sparkline"></svg> <%=field.label %></li>
+  <% end %>
+</ul>

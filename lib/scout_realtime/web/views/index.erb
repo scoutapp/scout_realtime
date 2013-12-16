@@ -1,3 +1,44 @@
+<div class="left_column">
+
+  <h3>CPU</h3>
+  <%=erb :sidebar_metric_list, :locals=>{:fields=>Scout::Realtime::Cpu.fields} %>
+
+  <h3>memory</h3>
+  <%=erb :sidebar_metric_list, :locals=>{:fields=>Scout::Realtime::Memory.fields} %>
+
+  <h3>disks</h3>
+  <%@disks.each do |disk| %>
+    <strong style="margin:0;padding:0;font-size:12px;"><%=disk%></strong>
+    <%=erb :sidebar_metric_list, :locals=>{:fields=>Scout::Realtime::Disk.fields} %>
+  <% end %>
+
+
+  <h3>networks</h3>
+  <%@network.each do |network| %>
+    <strong style="margin:0;padding:0;font-size:12px;"><%=network%></strong>
+    <%=erb :sidebar_metric_list, :locals=>{:fields=>Scout::Realtime::Network.fields} %>
+  <% end %>
+
+</div>
+
+<div class="right_column">
+
+</div>
+
+<script>
+  $('.sparkline').each(function(i,e){
+    var fakeData=[];
+    for(i=0;i<40;i++){
+      fakeData.push({value:[Math.random()*10],time:(new Date().getTime() - i*1000)})
+    }
+    var params={yMax:10,data:fakeData, element:e,colors:[]}
+    ///params contains data, yMax, colors, element
+    barChart = new BarChart(params);
+    barChart.draw()
+  });
+</script>
+
+<!--
 <div id="header">
   <div class="content" style="padding-top: 5px">
     <img src="/images/white_logo.png" style="height:24px;vertical-align: bottom; margin-bottom:6px;">
@@ -129,4 +170,5 @@
   </div>
 </div>
 
+-->
 <script src="/javascripts/application.js"></script>
