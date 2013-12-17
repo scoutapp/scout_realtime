@@ -1,5 +1,4 @@
-require_relative "metric_source"
-class Scout::Realtime::Cpu < Scout::Realtime::MetricSource
+class Scout::Realtime::Cpu
 
   FIELDS = [ { :user                  => { 'units' => '%', 'precision' => 1 } },
              { :system                => { 'units' => '%', 'precision' => 1 } },
@@ -13,7 +12,25 @@ class Scout::Realtime::Cpu < Scout::Realtime::MetricSource
              { :last_five_minutes     => { 'units' => '', 'precision' => 2  } },
              { :last_fifteen_minutes  => { 'units' => '', 'precision' => 2 } } ]
 
-  def add_metrics
+  attr_reader :historical_metrics
 
+  def initialize
+    @collector = ServerMetrics::Cpu.new()
+    @historical_metrics = Hash.new
+  end
+
+  def run
+    res = @collector.run
+
+    self.class.fields.each do |field|
+      @historical_metrics[field.name] ||= RingBuffer.new(30)
+      @historical_metrics[field.name].push(res[field.name])
+    end
+
+    res
+  end
+
+  def self.fields
+    const_get(:FIELDS).map{|h| Scout::Realtime::Field.new(h) }
   end
 end

@@ -29,7 +29,8 @@ class Scout::Realtime::WebApp < Sinatra::Base
 
 
   get '/' do
-    latest_run = Scout::Realtime::Main.instance.collector.latest_run
+    latest_run = Scout::Realtime::Main.instance.runner.latest_run
+    @historical_metrics = Scout::Realtime::Main.instance.runner.historical_metrics
     @disks = (latest_run[:disks] ||{}).keys.sort
     @network = (latest_run[:network] ||{}).keys.sort
     @processes = (latest_run[:processes] ||{}).map { |k, v| OpenStruct.new(v) }.sort_by { |a| a.memory }.reverse
@@ -59,13 +60,9 @@ class Scout::Realtime::WebApp < Sinatra::Base
 
   get '/stats.json' do
     content_type :json
-    Scout::Realtime::Main.instance.collector.latest_run.to_json
+    Scout::Realtime::Main.instance.runner.latest_run.to_json
   end
 
-  get '/buffer.json' do
-    content_type :json
-    Scout::Realtime::Main.instance.collector.metrics.to_json
-  end
 
   get '/d3' do
     erb :d3, :layout => false

@@ -7,7 +7,7 @@ class Scout::Realtime::Field
   def initialize(hash)
     @name = hash.keys.first
     metadata = hash[@name]
-    @label = metadata['label'] || @name.gsub('_', ' ') # poor man's humanize
+    @label = metadata['label'] || @name.to_s.gsub('_', ' ') # poor man's humanize
     @units = metadata['units'] || ''
     @precision = metadata['precision'] || 0
   end

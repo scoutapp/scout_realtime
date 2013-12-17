@@ -6,7 +6,7 @@ module Scout
       INTERVAL=1
       LOG_NAME="realtime.log"
 
-      attr_accessor :running, :collector, :stats_thread
+      attr_accessor :running, :runner, :stats_thread
 
       def initialize(opts={})
         home_dir_path = File.expand_path("~")
@@ -20,7 +20,7 @@ module Scout
 
         @home_dir = File.exist?(home_dir_path) ? File.new(home_dir_path) : Dir.mkdir(home_dir_path)
         @stats_thread = Thread.new {}
-        @collector = Scout::Realtime::Runner.new
+        @runner = Scout::Realtime::Runner.new
       end
 
       def start_thread
@@ -29,8 +29,8 @@ module Scout
         @running = true
         @stats_thread = Thread.new do
           while (@running) do
-            @collector.run
-            logger.info("collector thread run ##{@collector.num_runs} ")  if @collector.num_runs.to_f % 50.0 == 2 || @collector.num_runs == 1
+            @runner.run
+            logger.info("collector thread run ##{@runner.num_runs} ")  if @runner.num_runs.to_f % 50.0 == 2 || @runner.num_runs == 1
             sleep INTERVAL
           end
         end
@@ -43,7 +43,7 @@ module Scout
       end
 
       def go_sinatra
-        @collector.run # sets up the latest_run so we can use it to render the main page
+        @runner.run # sets up the latest_run so we can use it to render the main page
         #@collector.latest_run=DATA_FOR_TESTING.first
         logger.info("starting web server ")
         start_thread

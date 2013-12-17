@@ -10,7 +10,8 @@
   <script src="/javascripts/d3.barchart.js"></script>
   <script src="/javascripts/rickshaw.min.js"></script>
   <script type="text/javascript" src="javascripts/handlebars-v1.1.0.js"></script>
-  <script>var metrics_array=<%=DATA_FOR_TESTING.to_json%>;</script>
+  <script>var metrics_array=[]<%#=DATA_FOR_TESTING.to_json%>;</script>
+  <script>var historical_metrics=<%=@historical_metrics.to_json%>;</script>
   <!--<script type="text/javascript" src="javascripts/metrics_for_development.js"></script>-->
   <%#= yield_content :head %>
 </head>
