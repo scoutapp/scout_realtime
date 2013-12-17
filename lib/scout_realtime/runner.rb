@@ -14,7 +14,7 @@ module Scout
         @disks = Scout::Realtime::Disk.new()
         @cpu   = Scout::Realtime::Cpu.new()
         @networks = Scout::Realtime::Network.new()
-        #@processes = ServerMetrics::Processes.new()
+        @processes = Scout::Realtime::Processes.new()
 
         @system_info = ServerMetrics::SystemInfo.to_h
       end
@@ -24,7 +24,7 @@ module Scout
         collector_meta={}
         historical_metrics={}
         #[@disks,@cpu,@memory,@networks,@processes].each do |collector|
-        [@memory, @disks, @cpu, @networks].each do |collector|
+        [@memory, @disks, @cpu, @networks, @processes].each do |collector|
           name=collector.class.name.split("::").last.downcase.to_sym
           start_time=Time.now
           begin
