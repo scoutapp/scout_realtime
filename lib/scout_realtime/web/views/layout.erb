@@ -3,6 +3,14 @@
 <head>
   <meta charset="utf-8">
   <title>Realtime</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
   <link type="text/css" rel="stylesheet" href="/stylesheets/rickshaw.min.css"></link>
   <link rel="stylesheet" href="stylesheets/styles.css?v=1.0">
   <script type="text/javascript" src="javascripts/jquery.js"></script>
@@ -11,10 +19,15 @@
   <script src="/javascripts/rickshaw.min.js"></script>
   <script type="text/javascript" src="javascripts/handlebars-v1.1.0.js"></script>
   <script>var metrics_array=<%=DATA_FOR_TESTING.to_json%>;</script>
+  <script type="text/javascript" src="//use.typekit.net/bfa1mea.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <!--<script type="text/javascript" src="javascripts/metrics_for_development.js"></script>-->
   <%#= yield_content :head %>
 </head>
-<body>
-<%=yield%>
-</body>
+  <body>
+    <div class="container">
+      <%=yield%>
+    </div><!-- container -->
+    <script src="/javascripts/bootstrap.min.js"></script>
+  </body>
 </html>

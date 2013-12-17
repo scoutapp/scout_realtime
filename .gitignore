@@ -17,3 +17,5 @@ test/version_tmp
 tmp
 .idea
 .ruby-version
+.DS_Store
+.vagrant/

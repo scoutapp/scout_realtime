@@ -1,0 +1,174 @@
+<div class="left_column">
+
+  <h3>CPU</h3>
+  <%=erb :sidebar_metric_list, :locals=>{:fields=>Scout::Realtime::Cpu.fields} %>
+
+  <h3>memory</h3>
+  <%=erb :sidebar_metric_list, :locals=>{:fields=>Scout::Realtime::Memory.fields} %>
+
+  <h3>disks</h3>
+  <%@disks.each do |disk| %>
+    <strong style="margin:0;padding:0;font-size:12px;"><%=disk%></strong>
+    <%=erb :sidebar_metric_list, :locals=>{:fields=>Scout::Realtime::Disk.fields} %>
+  <% end %>
+
+
+  <h3>networks</h3>
+  <%@network.each do |network| %>
+    <strong style="margin:0;padding:0;font-size:12px;"><%=network%></strong>
+    <%=erb :sidebar_metric_list, :locals=>{:fields=>Scout::Realtime::Network.fields} %>
+  <% end %>
+
+</div>
+
+<div class="right_column">
+
+</div>
+
+<script>
+  $('.sparkline').each(function(i,e){
+    var fakeData=[];
+    for(i=0;i<40;i++){
+      fakeData.push({value:[Math.random()*10],time:(new Date().getTime() - i*1000)})
+    }
+    var params={yMax:10,data:fakeData, element:e,colors:[]}
+    ///params contains data, yMax, colors, element
+    barChart = new BarChart(params);
+    barChart.draw()
+  });
+</script>
+
+<!--
+<div id="header">
+  <div class="content" style="padding-top: 5px">
+    <img src="/images/white_logo.png" style="height:24px;vertical-align: bottom; margin-bottom:6px;">
+    <span style="font-size:22px; line-height: 30px;margin-left:10px;"><%= ServerMetrics::SystemInfo.hostname %> </span>
+
+    <a class="toggle" id="toggle_data" href="javascript:toggleData()" style="margin-top: 8px;font-size:smaller">data
+      on/off</a>
+  </div>
+</div>
+
+<div style="margin: 45px 0px; width:100%;">
+
+  <table class="alpha">
+    <tr>
+      <td width="50px" valign=top class="icon">
+        <img src="/images/cpu.png" width="60">
+      </td>
+      <td width="*">
+        <table width="100%">
+          <tr>
+            <td width="50%">
+              <%= erb :graph, :locals => {:chart_type => "cpu_load", :chart_instance_name => ""} %>
+            </td>
+            <td width="50%">
+              <%= erb :graph, :locals => {:chart_type => "cpu_io_wait", :chart_instance_name => ""} %>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <table class="alpha">
+    <tr>
+      <td width="50px" valign=top class="icon">
+        <img src="/images/memory.png" width="60">
+      </td>
+      <td width="*">
+        <table width="100%">
+          <tr>
+            <td width="50%">
+              <%= erb :graph, :locals => {:chart_type => "memory_swap_used_percent", :chart_instance_name => ""} %>
+            </td>
+            <td width="50%">
+              <%= erb :graph, :locals => {:chart_type => "memory", :chart_instance_name => ""} %>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <% @disks.each do |disk| %>
+    <table class="alpha">
+      <tr>
+        <td width="50px" valign=top class="icon">
+          <img src="/images/disk.png" width="60">
+        </td>
+        <td width="*">
+          <table width="100%">
+            <tr>
+              <td width="33%">
+                <%= erb :graph, :locals => {:chart_type => "disks_utilization", :chart_instance_name => disk} %>
+              </td>
+              <td width="33%">
+                <%= erb :graph, :locals => {:chart_type => "disks_read_write_kbs", :chart_instance_name => disk} %>
+              </td>
+              <td width="33%">
+                <%= erb :graph, :locals => {:chart_type => "disks_read_write", :chart_instance_name => disk} %>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+
+  <% @network.each do |network| %>
+    <table class="alpha">
+      <tr>
+        <td width="50px" valign=top class="icon">
+          <img src="/images/network.png" width="60">
+        </td>
+        <td width="*">
+          <table width="100%">
+            <tr>
+              <td width="50%">
+                <%= erb :graph, :locals => {:chart_type => "network_bytes", :chart_instance_name => network} %>
+              </td>
+              <td width="50%">
+                <%= erb :graph, :locals => {:chart_type => "network_packets", :chart_instance_name => network} %>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+
+
+  <script id="process-template" type="text/x-handlebars-template">
+    <tr class="process_row" data-cmd="{{cmd}}">
+      <td>{{cmd}}</td>
+      <td>
+        <div class="process_chart" data-metric="count"></div>
+        <span class="current_count">{{count}}</span>
+      </td>
+      <td>
+        <div class="process_chart" data-metric="cpu"></div>
+        <span class="current_cpu">{{cpu}}</span>
+      </td>
+      <td>
+        <div class="process_chart" data-metric="memory"></div>
+        <span class="current_memory">{{memory}}</span>
+      </td>
+    </tr>
+  </script>
+
+  <%= erb :processes %>
+
+</div>
+
+<div id="footer">
+  <div class="content" style="padding-top: 10px; text-align: center">
+    <%= ServerMetrics::SystemInfo.os %>&nbsp;&nbsp;&nbsp;
+    <%= ServerMetrics::SystemInfo.architecture %> &nbsp;&nbsp;&nbsp;
+    <%= ServerMetrics::SystemInfo.os_version %> &nbsp;&nbsp;&nbsp;
+    <%= ServerMetrics::SystemInfo.num_processors %> processor(s)
+  </div>
+</div>
+
+-->
+<script src="/javascripts/application.js"></script>

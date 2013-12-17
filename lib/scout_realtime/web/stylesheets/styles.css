@@ -1,14 +1,158 @@
 * {
-  font-family: "Proxima Nova";
+	font-family: "proxima-nova","Lucida Grande", sans-serif;
 }
 
-html {
-  /*background-color: #f3f2f7; */
+html {  
 }
 
 body {
-  margin: 0
+	background-color: #57A4C1; 
 }
+
+.container {
+	margin-top: 20px;
+	background-color: #57A4C1; 
+}
+
+#top {
+	color: #fff;
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+#top span {
+	color: #EEEDF1;
+}
+
+/* excludes the header / time pause */
+.inner_container {
+	padding: 5px 15px 15px 15px;
+	border-radius: 3px;
+	background: #fff;
+	margin-bottom: 20px;
+}
+
+#host_header {
+	color: #666666;
+	font-size: 20px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #EEEDF1;
+	padding: 5px 0 10px 15px;
+}
+
+/** overview charts **/
+
+#overview_charts.row {
+	background: -moz-linear-gradient(top,white,whiteSmoke);
+	background: -webkit-gradient(linear, left top, left bottom, from(white), to(whiteSmoke));
+	padding: 0px 0px 10px 0px;
+	border-bottom: 1px solid #EEE;
+}
+
+#overview_charts h3 {
+	font-weight: normal;
+	color: #999;
+	font-size: 14px;
+	text-shadow: 1px 1px 0 white;
+	margin-top: 0;
+}
+
+#overview_charts.row svg {
+	height: 110px;
+	background: gray;
+}
+
+/** processes table **/
+
+#processes {
+	background: -webkit-gradient(linear, left top, left bottom, from(whiteSmoke), to(#eeedf1));
+	width: 100%;
+	margin-top: 10px;
+}
+
+#processes td:not(:first-child) {
+    transition: background-color .20s;
+		width: 26.6666%; /* 3 cols of data. 1st col in table is 20% */
+		padding: 0; /* href wraps around content and provides padding */
+}
+
+#processes td:not(:first-child):hover {
+    background: whitesmoke;
+    cursor: pointer;
+		color: #000;
+}
+
+#processes td:not(:first-child) a {
+	padding: 14px 20px;
+	display: block;
+	color: #666;
+	text-decoration: none;
+}
+
+#processes td:not(:first-child) a:hover {
+	background: transparent;
+}
+
+#processes thead th {
+	font-size: 12px;
+	color: #9DB1BC;
+	padding: 10px 20px;
+	border-bottom: 1px solid #eaeaea;
+	background: #fff;
+}
+
+#processes td:first-child{
+	background: #eeedf1;
+	border-left: 1px solid #eaeaea;	
+	border-bottom-color: transparent;
+}
+
+#processes td:first-child{
+	font-size: 14px;
+	font-weight: bold;
+	background: #eeedf1;
+	width: 20%;
+	vertical-align: bottom;
+	background: transparent;
+	border-left: 1px solid #eaeaea;	
+}
+
+#processes tr:last-child td:first-child{
+	border-bottom: 1px solid #eaeaea;
+}
+
+#processes td {
+	color: #666;
+	padding: 14px 20px;
+	border-bottom: 1px solid #eaeaea;
+	font-size: 13px;
+	background: #fff;
+}
+
+#processes tr.compact td {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+#processes td.process:hover {
+  cursor: pointer;
+}
+
+#processes td:last-child {
+	border-right: 1px solid #eaeaea;
+}
+
+.process_chart,.disk_chart {
+	display: inline-block;
+}
+
+.process_chart {
+	min-width: 150px;
+    width:80%;
+	height: 15px;
+}
+
+/** older styles **/
 
 .left_column {
   position: absolute;
