@@ -3,12 +3,19 @@ module Scout
     class Runner
       attr_accessor :num_runs
       attr_accessor :latest_run
+      attr_accessor :metrics
 
       def initialize
         @latest_run = {}
-        @num_runs=0
+        @num_runs = 0
 
-        @collectors={:disks => ServerMetrics::Disk.new(), :cpu => ServerMetrics::Cpu.new(), :memory => ServerMetrics::Memory.new(), :network => ServerMetrics::Network.new() , :processes=>ServerMetrics::Processes.new() }
+        @disks = ServerMetrics::Disk.new()
+        @cpu   = ServerMetrics::Cpu.new()
+        @memory = ServerMetrics::Memory.new()
+        @networks = ServerMetrics::Network.new()
+        @processes = ServerMetrics::Processes.new()
+
+        @memory_store = Scout::Realtime::Memory.new
 
         @system_info = ServerMetrics::SystemInfo.to_h
       end
@@ -16,10 +23,15 @@ module Scout
       def run
         collector_res={}
         collector_meta={}
-        @collectors.each_pair do |name, collector|
+        [@disks,@cpu,@memory,@networks,@processes].each do |collector|
+          name=collector.class.name.split("::").last.downcase.to_sym
           start_time=Time.now
           begin
             collector_res[name] = collector.run
+            if name == :memory
+              @memory_store.add_metrics(collector_res[name])
+              puts @memory_store.buffers.to_json
+            end
           rescue => e
             raise e
           end

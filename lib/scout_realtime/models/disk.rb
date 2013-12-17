@@ -1,4 +1,5 @@
-class Scout::Realtime::Disk
+require_relative "metric_source"
+class Scout::Realtime::Disk < Scout::Realtime::MetricSource
 
   FIELDS = [ {:size =>         {'label'=>'Disk Size', 'units'=>'GB', 'precision'=>0} },
              {:used =>         {'label'=>'Disk Space Used', 'units'=>'GB', 'precision'=>0} },
@@ -12,8 +13,4 @@ class Scout::Realtime::Disk
              {:wps_kb =>       {'label'=>'Write kBps', 'units'=>'kB/s', 'precision'=>1} },
              {:rps =>          {'label'=>'Reads/sec', 'precision'=> 0} } ]
 
-
-  def self.fields
-    FIELDS.map{|h| Scout::Realtime::Field.new(h) }
-  end
 end

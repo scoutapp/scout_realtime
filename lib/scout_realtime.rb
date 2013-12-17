@@ -12,7 +12,8 @@ Dir.entries(vendor_path).each do |vendor|
   $LOAD_PATH.unshift(full_path) if File.directory?(full_path)
 end
 
-# load models (repeat this format for other directories to load)
+# load files in lib, etc (repeat this format for other directories to load)
+Dir[File.dirname(__FILE__) + '/scout_realtime/lib/*.rb'].each {|file| require file }
 Dir[File.dirname(__FILE__) + '/scout_realtime/models/*.rb'].each {|file| require file }
 
 require 'rubygems'

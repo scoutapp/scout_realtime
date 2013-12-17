@@ -1,4 +1,5 @@
-class Scout::Realtime::Cpu
+require_relative "metric_source"
+class Scout::Realtime::Cpu < Scout::Realtime::MetricSource
 
   FIELDS = [ { :user                  => { 'units' => '%', 'precision' => 1 } },
              { :system                => { 'units' => '%', 'precision' => 1 } },
@@ -12,7 +13,7 @@ class Scout::Realtime::Cpu
              { :last_five_minutes     => { 'units' => '', 'precision' => 2  } },
              { :last_fifteen_minutes  => { 'units' => '', 'precision' => 2 } } ]
 
-  def self.fields
-    FIELDS.map{|h| Scout::Realtime::Field.new(h) }
+  def add_metrics
+
   end
 end

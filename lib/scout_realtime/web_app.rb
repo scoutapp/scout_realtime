@@ -62,6 +62,11 @@ class Scout::Realtime::WebApp < Sinatra::Base
     Scout::Realtime::Main.instance.collector.latest_run.to_json
   end
 
+  get '/buffer.json' do
+    content_type :json
+    Scout::Realtime::Main.instance.collector.metrics.to_json
+  end
+
   get '/d3' do
     erb :d3, :layout => false
   end

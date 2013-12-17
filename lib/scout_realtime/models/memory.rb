@@ -1,4 +1,5 @@
-class Scout::Realtime::Memory
+require_relative "metric_source"
+class Scout::Realtime::Memory < Scout::Realtime::MetricSource
 
   FIELDS = [ { :size              => {'label'=>'Memory Total', 'units'=>'MB', 'precision'=>0}},
              { :used              => {'label'=>'Memory Used', 'units'=>'MB', 'precision'=>0}},
@@ -8,8 +9,6 @@ class Scout::Realtime::Memory
              { :swap_used         => {'label'=>'Swap Used', 'units'=>'MB', 'precision'=>0}},
              { :swap_used_percent => {'label'=>'% Swap Used', 'units'=>'%', 'precision'=>0}} ]
 
-  def self.fields
-    FIELDS.map{|h| Scout::Realtime::Field.new(h) }
-  end
+  attr_reader :historical_metrics
 
 end
