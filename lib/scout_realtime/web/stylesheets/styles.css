@@ -59,7 +59,7 @@ body {
 
 #overview_charts.row svg {
 	height: 110px;
-	background: gray;
+/*	background: gray;*/
 }
 
 /** processes table **/

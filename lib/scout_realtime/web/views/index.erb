@@ -15,7 +15,7 @@
     </div>
     <div class="col-md-3">
       <h3>Memory</h3>
-      <svg></svg>
+      <%= erb :graph, :locals => {:chart_type => "memory", :chart_instance_name => ""} %>
     </div>
     <div class="col-md-3">
       <h3>Disk</h3>
