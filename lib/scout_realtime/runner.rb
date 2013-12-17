@@ -11,10 +11,10 @@ module Scout
         @num_runs = 0
 
         @memory = Scout::Realtime::Memory.new
-        @disks = Scout::Realtime::Disk.new()
-        @cpu   = Scout::Realtime::Cpu.new()
-        @networks = Scout::Realtime::Network.new()
-        @processes = Scout::Realtime::Processes.new()
+        @disks = Scout::Realtime::Disk.new
+        @cpu   = Scout::Realtime::Cpu.new
+        @networks = Scout::Realtime::Network.new
+        @processes = Scout::Realtime::Processes.new
 
         @system_info = ServerMetrics::SystemInfo.to_h
       end
