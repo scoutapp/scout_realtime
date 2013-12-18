@@ -12,8 +12,29 @@ class Scout::Realtime::Disk
              {:wps_kb =>       {'label'=>'Write kBps', 'units'=>'kB/s', 'precision'=>1} },
              {:rps =>          {'label'=>'Reads/sec', 'precision'=> 0} } ]
 
+  attr_reader :historical_metrics
+
+  def initialize
+    @collector = ServerMetrics::Disk.new()
+    @historical_metrics = Hash.new
+  end
+
+  def run
+    res = @collector.run
+    # since this is a multi-collector, the first level of the result hash is name
+    res.each_pair do |name,metrics_hash|
+      @historical_metrics[name] ||= {}
+      self.class.fields.each do |field|
+        @historical_metrics[name][field.name] ||= RingBuffer.new(30)
+        @historical_metrics[name][field.name].push(metrics_hash[field.name])
+      end
+    end
+
+    res
+  end
 
   def self.fields
-    FIELDS.map{|h| Scout::Realtime::Field.new(h) }
+    const_get(:FIELDS).map{|h| Scout::Realtime::Field.new(h) }
   end
+
 end

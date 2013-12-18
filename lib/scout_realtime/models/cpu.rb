@@ -12,7 +12,25 @@ class Scout::Realtime::Cpu
              { :last_five_minutes     => { 'units' => '', 'precision' => 2  } },
              { :last_fifteen_minutes  => { 'units' => '', 'precision' => 2 } } ]
 
+  attr_reader :historical_metrics
+
+  def initialize
+    @collector = ServerMetrics::Cpu.new()
+    @historical_metrics = Hash.new
+  end
+
+  def run
+    res = @collector.run
+
+    self.class.fields.each do |field|
+      @historical_metrics[field.name] ||= RingBuffer.new(30)
+      @historical_metrics[field.name].push(res[field.name])
+    end
+
+    res
+  end
+
   def self.fields
-    FIELDS.map{|h| Scout::Realtime::Field.new(h) }
+    const_get(:FIELDS).map{|h| Scout::Realtime::Field.new(h) }
   end
 end

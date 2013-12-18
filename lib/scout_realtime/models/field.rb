@@ -5,14 +5,14 @@ class Scout::Realtime::Field
   # initialized a hash like:
   # { :bytes_in =>    { 'units' => 'KB/s', 'precision' => '0', 'label' => 'Bytes In' } }
   def initialize(hash)
-    @name = hash.keys.first.to_s
-    metadata = hash[@name.to_sym]
-    @label = metadata['label'] || @name.gsub('_', ' ') # poor man's humanize
+    @name = hash.keys.first
+    metadata = hash[@name]
+    @label = metadata['label'] || @name.to_s.gsub('_', ' ') # poor man's humanize
     @units = metadata['units'] || ''
     @precision = metadata['precision'] || 0
   end
 
-  # format the provided value provided value
+  # format the provided value
   def format(number)
     ("%.#{@precision}f" % number) + (@units == '%' ? '%' : " #{@units}")
   end

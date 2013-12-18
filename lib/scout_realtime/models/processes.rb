@@ -1,19 +1,19 @@
-class Scout::Realtime::Network
+class Scout::Realtime::Processes
 
-  FIELDS = [ { :bytes_in =>    { 'units' => 'KB/s', 'precision' => '0' } },
-             { :bytes_out =>   { 'units' => 'KB/s', 'precision' => '0' } },
-             { :packets_in =>  { 'units' => 'pkts/s', 'precision' => '0' } },
-             { :packets_out => { 'units' => 'pkts/s', 'precision' => '0'  } } ]
+  FIELDS = [ { :cpu              => {'label'=>'CPU usage', 'units'=>'', 'precision'=>2}},
+             { :memory           => {'units'=>'MB', 'precision'=>1}},
+             { :count            => {'units'=>'', 'precision'=>0}} ]
 
   attr_reader :historical_metrics
 
   def initialize
-    @collector = ServerMetrics::Network.new()
+    @collector = ServerMetrics::Processes.new()
     @historical_metrics = Hash.new
   end
 
   def run
     res = @collector.run
+
     # since this is a multi-collector, the first level of the result hash is name
     res.each_pair do |name,metrics_hash|
       @historical_metrics[name] ||= {}

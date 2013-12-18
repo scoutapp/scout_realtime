@@ -30,7 +30,7 @@ module Scout::Realtime
         Scout::Realtime::Main.instance.start_thread
         res.set_redirect WEBrick::HTTPStatus::TemporaryRedirect, "/"
       elsif path=="stats.json"
-        res.body=Scout::Realtime::Main.instance.collector.latest_run.to_json
+        res.body=Scout::Realtime::Main.instance.runner.latest_run.to_json
         res['Content-Type'] = 'application/json'
       elsif web_root_files.include?(path)
         res.body=File.read(File.join(WEB_ROOT,'/'+path))
