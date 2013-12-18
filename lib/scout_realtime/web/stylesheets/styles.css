@@ -145,3 +145,9 @@ svg {
 .rickshaw_legend li.line .label {
   color:dimgray;
 }
+
+#fail_message {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
