@@ -11,19 +11,19 @@
   <div id="overview_charts" class="row">
     <div class="col-md-3">
       <h3>CPU</h3>
-      <%= erb :graph, :locals => {:chart_type => "cpu_load", :chart_instance_name => ""} %>
+      <%= erb :graph, :locals => {:chart_type => "cpu-last_minute", :chart_instance_name => ""} %>
     </div>
     <div class="col-md-3">
       <h3>Memory</h3>
-      <%= erb :graph, :locals => {:chart_type => "memory", :chart_instance_name => ""} %>
+      <%= erb :graph, :locals => {:chart_type => "memory-used_percent", :chart_instance_name => ""} %>
     </div>
     <div class="col-md-3">
       <h3>Disk</h3>
-      <%= erb :graph, :locals => {:chart_type => "disks_utilization", :chart_instance_name => ""} %>
+      <%= erb :graph, :locals => {:chart_type => "disk-utilization", :chart_instance_name => @disks.last} %>
     </div>
     <div class="col-md-3">
       <h3>Network</h3>
-      <%= erb :graph, :locals => {:chart_type => "network_bytes", :chart_instance_name => @network.first} %>
+      <%= erb :graph, :locals => {:chart_type => "network-bytes_out", :chart_instance_name => @networks.first} %>
     </div>
   </div>
   

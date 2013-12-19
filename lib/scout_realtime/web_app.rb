@@ -29,11 +29,11 @@ class Scout::Realtime::WebApp < Sinatra::Base
 
 
   get '/' do
-    latest_run = Scout::Realtime::Main.instance.runner.latest_run
+    @latest_run = Scout::Realtime::Main.instance.runner.latest_run
     @historical_metrics = Scout::Realtime::Main.instance.runner.historical_metrics
-    @disks = (latest_run[:disks] ||{}).keys.sort
-    @network = (latest_run[:network] ||{}).keys.sort
-    @processes = (latest_run[:processes] ||{}).map { |k, v| OpenStruct.new(v) }.sort_by { |a| a.memory }.reverse
+    @disks = (@latest_run[:disk] ||{}).keys.sort
+    @networks = (@latest_run[:network] ||{}).keys.sort
+    @processes = (@latest_run[:processes] ||{}).map { |k, v| OpenStruct.new(v) }.sort_by { |a| a.memory }.reverse
 
     #"ruby": {
     #    "cpu": 0.488400488400488,
