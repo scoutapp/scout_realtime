@@ -29,7 +29,7 @@ where [options] are:
   EOS
 
   opt :port, "point your web browser to this port to view realtime metrics.", :default => 5555, :short => "-p"
-  opt :foreground, "run in the foreground, i.e., don't daemonize the process. Useful for debugging.", :default => false
+  opt :foreground, "run in the foreground, i.e., don't daemonize the process. Useful for debugging.", :default => false, :short => "-f"
 end
 # future options: pid, log -- set different locations
 
