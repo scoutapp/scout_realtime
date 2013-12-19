@@ -9,6 +9,13 @@ body {
 	background-color: #57A4C1; 
 }
 
+/* the color used for lines in d3 charts */
+svg .line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
 .container {
 	margin-top: 20px;
 	background-color: #57A4C1; 
@@ -59,7 +66,6 @@ body {
 
 #overview_charts.row svg {
 	height: 110px;
-/*	background: gray;*/
 }
 
 /** processes table **/
@@ -70,10 +76,13 @@ body {
 	margin-top: 10px;
 }
 
+#processes .chart {
+	height: 15px;
+}
+
 #processes td:not(:first-child) {
     transition: background-color .20s;
 		width: 26.6666%; /* 3 cols of data. 1st col in table is 20% */
-		padding: 0; /* href wraps around content and provides padding */
 }
 
 #processes td:not(:first-child):hover {
@@ -82,16 +91,6 @@ body {
 		color: #000;
 }
 
-#processes td:not(:first-child) a {
-	padding: 14px 20px;
-	display: block;
-	color: #666;
-	text-decoration: none;
-}
-
-#processes td:not(:first-child) a:hover {
-	background: transparent;
-}
 
 #processes thead th {
 	font-size: 12px;
@@ -152,47 +151,7 @@ body {
 	height: 15px;
 }
 
-/** older styles **/
-
-.left_column {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  width:230px;
-  border-right: 1px solid #eee;
-  padding:5px 10px 5px;
-}
-
-.right_column {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 250px;
-  padding:5px
-}
-
-/* metric list */
-
-.left_column h3 {
-  margin:4px 0 2px 0;
-  font-size:15px;
-}
-
-ul.metric_selection {
-  list-style-type: none;
-  padding:0;
-  margin: 0 0 0 10px;
-}
-
-ul.metric_selection svg {
-  float:right;
-}
-
-ul.metric_selection li {
-  font-size:12px;
-  line-height: 14px;
-}
-
+/****************** older styles ************************/
 
 /* sparklines */
 

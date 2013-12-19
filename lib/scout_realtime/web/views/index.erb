@@ -11,7 +11,7 @@
   <div id="overview_charts" class="row">
     <div class="col-md-3">
       <h3>CPU</h3>
-      <svg></svg>
+      <%= erb :graph, :locals => {:chart_type => "cpu_load", :chart_instance_name => ""} %>
     </div>
     <div class="col-md-3">
       <h3>Memory</h3>
@@ -19,11 +19,11 @@
     </div>
     <div class="col-md-3">
       <h3>Disk</h3>
-      <svg></svg>
+      <%= erb :graph, :locals => {:chart_type => "disks_utilization", :chart_instance_name => ""} %>
     </div>
     <div class="col-md-3">
       <h3>Network</h3>
-      <svg></svg>
+      <%= erb :graph, :locals => {:chart_type => "network_bytes", :chart_instance_name => @network.first} %>
     </div>
   </div>
   
@@ -38,12 +38,12 @@
     </tr>
   </thead>
   <tbody>
-    <% 10.times do %>
+    <% 10.times do |i| %>
       <tr>
         <td>ruby</td>
-        <td class="process" title="View Chart"></td>
-        <td class="process" title="View Chart"></td>
-        <td class="process" title="View Chart"></td>
+        <td class="process" title="View Chart"><svg class="chart" data-type="count" data-instance-name="ruby_<%=i%>"></svg></td>
+        <td class="process" title="View Chart"><svg class="chart" data-type="cpu" data-instance-name="ruby_<%=i%>"></svg></td>
+        <td class="process" title="View Chart"><svg class="chart" data-type="memory" data-instance-name="ruby_<%=i%>"></svg></td>
       </tr>
     <% end%>
     </tbody>
