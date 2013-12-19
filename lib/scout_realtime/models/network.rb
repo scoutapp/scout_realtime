@@ -18,7 +18,7 @@ class Scout::Realtime::Network
     res.each_pair do |name,metrics_hash|
       @historical_metrics[name] ||= {}
       self.class.fields.each do |field|
-        @historical_metrics[name][field.name] ||= RingBuffer.new(30)
+        @historical_metrics[name][field.name] ||= RingBuffer.new(60)
         @historical_metrics[name][field.name].push(metrics_hash[field.name])
       end
     end

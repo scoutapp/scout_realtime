@@ -23,7 +23,7 @@ class Scout::Realtime::Cpu
     res = @collector.run
 
     self.class.fields.each do |field|
-      @historical_metrics[field.name] ||= RingBuffer.new(30)
+      @historical_metrics[field.name] ||= RingBuffer.new(60)
       @historical_metrics[field.name].push(res[field.name])
     end
 
