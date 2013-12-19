@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "sys/proctable"
+
+a = Sys::ProcTable.ps
+p=a.first
+puts "Before spawning a thread. Ran Sys::ProcTable.ps, and read a pid=#{p.pid}"
+
+stats_thread = Thread.new do
+  loop do
+    puts "This is within the another thread ..."
+    a = Sys::ProcTable.ps
+    p=a.first
+    puts p.inspect
+    sleep 1
+  end
+end
+stats_thread.abort_on_exception=true
+
+loop do
+  puts "in main loop"
+  sleep 1
+end
+
+
+

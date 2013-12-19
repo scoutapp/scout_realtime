@@ -1,5 +1,3 @@
-Thread.abort_on_exception=true
-
 module Scout
   module Realtime
     class Main
@@ -8,17 +6,10 @@ module Scout
 
       attr_accessor :running, :runner, :stats_thread
 
+      # opts: {:port=>xxx}
       def initialize(opts={})
-        home_dir_path = File.expand_path("~")
-        if opts[:stdout]
-          puts " ** Initializing. cntl-c to stop. Logging to STDOUT **"
-          Scout::Realtime::logger=Logger.new(STDOUT)
-        else
-          puts " ** Initializing. cntl-c to stop. See logs in #{home_dir_path}/ **"
-          Scout::Realtime::logger=Logger.new(File.join(home_dir_path, LOG_NAME))
-        end
-
-        @home_dir = File.exist?(home_dir_path) ? File.new(home_dir_path) : Dir.mkdir(home_dir_path)
+        @port=opts[:port]
+        Scout::Realtime::logger=Logger.new(STDOUT)
         @stats_thread = Thread.new {}
         @runner = Scout::Realtime::Runner.new
       end
@@ -34,6 +25,7 @@ module Scout
             sleep INTERVAL
           end
         end
+        @stats_thread.abort_on_exception = true
 
       end
 
@@ -43,11 +35,21 @@ module Scout
       end
 
       def go_sinatra
-        @runner.run # sets up the latest_run so we can use it to render the main page
-        #@collector.latest_run=DATA_FOR_TESTING.first
+        #@runner.run # sets up the latest_run so we can use it to render the main page
+        #@runner.latest_run=DATA_FOR_TESTING.first
+
         logger.info("starting web server ")
+
+        #['INT', 'TERM'].each do |signal|
+        #  trap signal do
+        #    puts "got a #{signal} signal -- shutting down :)"
+        #    @stats_thread.exit
+        #    #Scout::Realtime::WebApp.quit! #
+        #  end
+        #end
+
         start_thread
-        Scout::Realtime::WebApp.run!
+        Scout::Realtime::WebApp.run!(:port=>@port)
       end
 
       def go_webrick
