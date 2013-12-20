@@ -14,7 +14,7 @@ log_path = File.join(home_dir, "scout_realtime.log")
 # parse the command
 cmd = ARGV.first
 command = nil
-command = :start if cmd.nil?
+command = :start if cmd.nil? || cmd =~/^\-/
 command = cmd.downcase.to_sym if cmd && %w(start stop help).include?(cmd.downcase)
 
 # parse the options
@@ -23,9 +23,16 @@ opts = Trollop::options do
   banner <<-EOS
 Stream realtime server metrics to your browser!
 
-Usage:
-       scout_realtime [start|stop]
-where [options] are:
+To start the daemon:
+      scout_realtime start OR JUST scout_realtime
+To stop it:
+      scout_realtime stop
+
+* You'll need to open a port (default:5555) in your firewall. See http://scoutapp.github.io/scout_realtime for details
+* Point your browser to http://your-ip-or-hostname:5555
+* FYI, the log file is: #{log_path} by default
+
+Advanced options:
   EOS
 
   opt :port, "point your web browser to this port to view realtime metrics.", :default => 5555, :short => "-p"
@@ -47,11 +54,34 @@ if opts[:foreground]
   puts startup_message
 else
   if command == :start
+    if Scout::Realtime.port_occupied?(opts[:port])
+      puts "Local port #{opts[:port]} doesn't appear to be available - try another port."
+      exit
+    end
+
     Dante::Runner.new('scout_realtime').execute(:daemonize => !opts[:foreground], :pid_path => pid_path, :log_path => log_path, :port=>opts[:port]) do |options|
       Scout::Realtime::Main.instance(:port=>options[:port]).go_sinatra
     end
     puts startup_message
-    puts '* "scout_realtime stop" to stop the daemon'
+    puts  '* "scout_realtime stop" to stop the daemon'
+
+
+    # Fork another process to run briefly & check that the primary daemon stayed running
+    pid = IO.read(pid_path).chomp.to_i
+    fork do
+      sleep 2
+      is_still_running = begin
+        Process.getpgid( pid )
+        true
+      rescue Errno::ESRCH
+        false
+      end
+
+      if !is_still_running
+        puts "\n## oh-oh, the daemon crashed. See log at #{log_path} ##\n"
+      end
+    end
+
   elsif command == :stop
     Dante::Runner.new('scout_realtime').execute(:kill => true, :pid_path => pid_path)
   elsif command == :help

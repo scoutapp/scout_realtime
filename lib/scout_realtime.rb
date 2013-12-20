@@ -39,6 +39,20 @@ module Scout
     def self.logger=(l)
       @@logger=(l);
     end
+
+    # this is here only becuase there's no obvious other place to put it
+    def self.port_occupied?(port, seconds=1)
+      Timeout::timeout(seconds) do
+        begin
+          TCPSocket.new("127.0.0.1", port).close
+          true
+        rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, Errno::EADDRINUSE, Errno::EADDRNOTAVAIL
+          false
+        end
+      end
+    rescue Timeout::Error
+      false
+    end
   end
 end
 
