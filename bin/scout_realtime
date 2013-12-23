@@ -5,6 +5,12 @@ load "scout_realtime.rb"  # bootstraps everything, including all other requires
 require "dante"           # ... except dante, which is required here because it's only relevant to running via command line
 require "fileutils"       # ... and fileutils, which we use for setting up the home directory
 
+# exit if Ruby version 1.9 on Mac
+if RUBY_VERSION =~ /^1\.9/ && ServerMetrics::SystemInfo.os.include?("darwin")
+  puts "Scout realtime doesn't work with Ruby 1.9.x on Mac. If you are using RVM, try switching to Ruby 2.0 (preferred), or 1.8.7"
+  exit
+end
+
 # by default, scout_realtime puts its pid and logfile in ~/.scout/
 home_dir =  File.join( (File.expand_path("~") rescue "/"), ".scout" )
 FileUtils.mkdir_p(home_dir) # ensure home directory exists
