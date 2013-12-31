@@ -2,95 +2,174 @@
 	font-family: "proxima-nova","Lucida Grande", sans-serif;
 }
 
-html {  
+h1, h2, h3 {
+	font-family: "proxima-nova","Lucida Grande", sans-serif;
+	font-weight: bold;
 }
 
-body {
-	background-color: #57A4C1; 
+h2 {
+	font-size: 18px;
+}
+
+h3 {
+	font-family: "proxima-nova","Lucida Grande", sans-serif;
+	font-weight: bold;
+}
+
+h2 span {
+	font-weight: normal;
 }
 
 /* the color used for lines in d3 charts */
 svg .line {
   fill: none;
-  stroke: #000;
-  stroke-width: 1.5px;
+  stroke: #A8A5A2;
+  stroke-width: 2.5px;
 }
 
 .container {
+	border-top: 7px solid #00A3CC;
 	margin-top: 20px;
-	background-color: #57A4C1; 
+	display:table;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+	padding: 0;
+	margin:0;
 }
 
-#top {
-	color: #fff;
-	font-size: 16px;
-	margin-bottom: 5px;
+/** bootstrap overrides for 100% height columns **/
+
+.row
+{
+	height: 100%;
+  display: table-row;
 }
 
-#top span {
-	color: #EEEDF1;
+.col-md-8, .col-md-4, .col-md-6
+{
+	display: table-cell;
+	float: none;
+	vertical-align: top;
 }
 
-/* excludes the header / time pause */
-.inner_container {
-	padding: 5px 15px 15px 15px;
-	border-radius: 3px;
+/** general layout **/
+
+.container .row > .col-md-8 {
+	border-bottom: 1px solid #E1E1E1;
+}
+
+/** top area - contains the header + overview **/
+
+/* time + pause/play */
+#toggle {
+	border: 1px solid #E1E1E1;
+	border-radius: 20px;
 	background: #fff;
+	float: right;
+	padding: 5px 14px;
+	font-size: 12px;
+	color: #000;
+	font-weight: bold;
+}
+
+
+#toggle img {
+	vertical-align: middle;
+}
+
+#toggle span {
+	padding-top: 6px;
+}
+
+#toggle *:nth-child(2){
+	margin-left: 10px;
+	margin-right: 5px;
+}
+
+#toggle .off {
+	opacity: 0.3;
+}
+
+
+#top .row.header_row .col-md-6{
+	padding-top: 10px;
+	padding-bottom: 15px;
+}
+
+#top .row{
+	background: #FCF8F6;
+}
+
+.container .row:first-child {
+	background: #FCF8F6;
+	border-bottom: 1px solid #E1E1E1;
+}
+
+/* the larger left column */
+#top .col-md-8 {
+	margin:0;
+}
+
+#top .chart_container{
 	margin-bottom: 20px;
 }
 
-#host_header {
-	color: #666666;
-	font-size: 20px;
-	margin-bottom: 10px;
-	border-bottom: 1px solid #EEEDF1;
-	padding: 5px 0 10px 15px;
+/* top sidebar */
+
+#sidebar_top {
+	background: #282524;
+	font-size: 14px;
+	color: #7B7B7B;
+	line-height: 130%;
+	padding: 0;
+	border-bottom: 1px solid #444140;
+}
+
+#hostname {
+	margin-bottom:15px;
+	color: #fff;
+}
+
+#sidebar_top div span {
+	color: #fff;
+}
+
+#sidebar_top div.info {
+	margin: 15px 0;
+	border-bottom: 1px solid #343434;
+	font-weight: bold;
+	padding: 0 15px 15px 15px;
+}
+
+#sidebar_top div.info:last-child {
+	border-bottom-width:0;
+	padding-bottom: 0;
+}
+
+#sidebar_top div.info .value {
+	font-size: 18px;
+}
+
+#sidebar_bottom {
+	background: #35312F;
 }
 
 /** overview charts **/
 
-#overview_charts.row {
-	background: -moz-linear-gradient(top,white,whiteSmoke);
-	background: -webkit-gradient(linear, left top, left bottom, from(white), to(whiteSmoke));
-	padding: 0px 0px 10px 0px;
-	border-bottom: 1px solid #EEE;
-}
-
-#overview_charts h3 {
-	font-weight: normal;
-	color: #999;
-	font-size: 14px;
-	text-shadow: 1px 1px 0 white;
+.chart_container h3 {
+	color: #A3A3A3;
+	font-size: 16px;
 	margin-top: 0;
-}
-
-#overview_charts.row svg {
-	height: 110px;
+	float: left;
 }
 
 /** processes table **/
 
 #processes {
-	background: -webkit-gradient(linear, left top, left bottom, from(whiteSmoke), to(#eeedf1));
 	width: 100%;
 	margin-top: 10px;
 }
-
-#processes .chart {
-	height: 15px;
-}
-
-#processes td:not(:first-child) {
-    transition: background-color .20s;
-		width: 26.6666%; /* 3 cols of data. 1st col in table is 20% */
-}
-
-#processes td:not(:first-child):hover {
-    background: whitesmoke;
-    cursor: pointer;
-		color: #000;
-}
-
 
 #processes thead th {
 	font-size: 12px;
@@ -100,20 +179,19 @@ svg .line {
 	background: #fff;
 }
 
-#processes td:first-child{
-	background: #eeedf1;
-	border-left: 1px solid #eaeaea;	
-	border-bottom-color: transparent;
+#processes .chart {
+	height: 15px;
+}
+
+#processes td:not(:first-child) {
+		width: 26.6666%; /* 3 cols of data. 1st col in table is 20% */
 }
 
 #processes td:first-child{
 	font-size: 14px;
 	font-weight: bold;
-	background: #eeedf1;
 	width: 20%;
 	vertical-align: bottom;
-	background: transparent;
-	border-left: 1px solid #eaeaea;	
 }
 
 #processes tr:last-child td:first-child{
@@ -133,147 +211,14 @@ svg .line {
   padding-right: 16px;
 }
 
-#processes td.process:hover {
-  cursor: pointer;
-}
-
-#processes td:last-child {
-	border-right: 1px solid #eaeaea;
-}
-
 .process_chart,.disk_chart {
 	display: inline-block;
 }
 
 .process_chart {
 	min-width: 150px;
-    width:80%;
+	width:80%;
 	height: 15px;
-}
-
-/****************** older styles ************************/
-
-/* sparklines */
-
-svg.sparkline {
-  width: 80px;
-  height: 12px;
-  display: block; /* without this, firefox will return the width as 100 */
-}
-
-.plugin_box svg.sparkline g.layer {
-  fill: #AFD9AF;
-}
-
-.plugin_box svg.sparkline .bottom_dash {
-  stroke: #AFD9AF;
-}
-
-/* line charts for descriptors aren't used. left in case we switch back */
-
-svg.sparkline .area {
-  fill: #65A7DE;
-  /*	opacity: 0;*/
-}
-
-.plugin_box:hover svg.sparkline .area {
-  fill: #65A7DE;
-  opacity: 0.3;
-}
-
-
-svg.sparkline .line {
-  fill: none;
-  stroke: #65A7DE;
-  stroke-width: 1px;
-  /*	opacity: 0;*/
-}
-
-.plugin_box:hover svg.sparkline .line {
-  opacity: 0.4;
-}
-
-
-/* ---------------------------------------------------- old ------------------------------------------------ */
-
-#header {
-  background-color: #295399;
-  height: 33px;
-  position: fixed;
-  z-index: 999999;
-  color: #eee;
-  width: 100%;
-
-  border-bottom: solid 1px #444;
-  top:0;
-}
-
-#footer {
-  background-color: #295399;
-
-  height: 33px;
-  position: fixed;
-  z-index: 999999;
-  color: #eee;
-  width: 100%;
-
-  border-top: solid 1px #444;
-  bottom:0;
-}
-
-.section {
-  clear:both;
-}
-
-.toggle {
-  color:#eee;
-}
-
-.on {
-  font-weight: bold;
-}
-
-#toggle_data {
-  float: right
-}
-
-.content {
-  width: 900px;
-  margin: 0 auto 0 auto;
-  position: relative;
-}
-
-.x.axis line {
-  shape-rendering: auto;
-}
-
-.line {
-  fill: none;
-  stroke: #000;
-  stroke-width: 1.5px;
-}
-
-svg {
-  font: 10px sans-serif;
-}
-
-.axis path, .axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-/* main table */
-
-.alpha {
-  border-bottom: 4px solid #9DB1BC;
-}
-
-.alpha td.icon {
-  padding: 20px 0 10px 20px;
-}
-.alpha table td {
-  padding:10px 5px;
 }
 
 /* process chart */
@@ -284,48 +229,14 @@ svg {
   display:inline-block;
 }
 
-
-/* chart and legend */
-
-.alpha {
-  width:100%;
-}
-
-.chart_container {
-  padding-right:20px;
-}
-
 .chart {
-  height:70px;
+  height:55px;
   width:100%;
-}
-
-.y_axis {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 30px;
-  left: 30px;
 }
 
 .chart_container .latest_value {
   float:right;
-  color:dimgray;
-  font-size:20px;
-}
-
-.rickshaw_legend {
-  padding:2px 5px;
-  background:transparent;
-  float:left;
-}
-
-.rickshaw_legend li.line {
-  float:left;
-  clear:none;
-  line-height: 14px;
-}
-
-.rickshaw_legend li.line .label {
-  color:dimgray;
+  color: #000;
+  font-size:18px;
+	font-weight: bold;
 }

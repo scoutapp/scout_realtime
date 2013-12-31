@@ -1,52 +1,21 @@
-<div id="top" class="row">
-  <div class="col-md-11">SCOUT <span>Realtime</span></div>
-  <div class="col-md-1"> 
-    <a class="toggle" id="toggle_data" href="javascript:toggleData()" style="font-size:smaller">
-      data on/off</a>
+<div class="row" style="height:100%">
+  <div class="col-md-8" style="height:100%">
+    <div id="top">
+      <%= erb :header %>
+      <%= erb :overview_charts%>
+    </div> <!-- top -->
+  </div> <!-- col-md-8 -->
+  <!-- sidebar -->
+  <div class="col-md-4" id="sidebar_top" style="height:100%">
+    <%= erb :sidebar %>
   </div>
 </div>
-<div class="inner_container">
-  <div id="host_header" class="row"><%= ServerMetrics::SystemInfo.hostname %></div>
-  <!-- overview charts -->
-  <div id="overview_charts" class="row">
-    <div class="col-md-3">
-      <h3>CPU</h3>
-      <%= erb :graph, :locals => {:chart_type => "cpu-last_minute", :chart_instance_name => ""} %>
-    </div>
-    <div class="col-md-3">
-      <h3>Memory</h3>
-      <%= erb :graph, :locals => {:chart_type => "memory-used_percent", :chart_instance_name => ""} %>
-    </div>
-    <div class="col-md-3">
-      <h3>Disk</h3>
-      <%= erb :graph, :locals => {:chart_type => "disk-utilization", :chart_instance_name => @disks.last} %>
-    </div>
-    <div class="col-md-3">
-      <h3>Network</h3>
-      <%= erb :graph, :locals => {:chart_type => "network-bytes_out", :chart_instance_name => @networks.first} %>
-    </div>
+<div class="row">
+  <div class="col-md-8">
+    <h2><span>Top</span> Processes</h2>
+    <%= erb :processes %>
   </div>
-  
-  <!-- processes -->
-  <table id="processes">
-    <thead>
-    <tr>
-      <th></th>
-      <th>Count</th>
-      <th>CPU %</th>
-      <th>Memory</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% 10.times do |i| %>
-      <tr>
-        <td>ruby</td>
-        <td class="process" title="View Chart"><svg class="chart" data-type="count" data-instance-name="ruby_<%=i%>"></svg></td>
-        <td class="process" title="View Chart"><svg class="chart" data-type="cpu" data-instance-name="ruby_<%=i%>"></svg></td>
-        <td class="process" title="View Chart"><svg class="chart" data-type="memory" data-instance-name="ruby_<%=i%>"></svg></td>
-      </tr>
-    <% end%>
-    </tbody>
-  </table>
-</div><!-- inner_container -->
+  <!-- sidebar -->
+  <div class="col-md-4" id="sidebar_bottom"></div>
+</div>
 <script src="/javascripts/application.js"></script>

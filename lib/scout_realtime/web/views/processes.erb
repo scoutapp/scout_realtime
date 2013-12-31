@@ -1,7 +1,4 @@
-
-Sort: <input type="radio" name="sort" value="cpu" id="sort_cpu"><label for="sort_cpu">CPU</label>
-<input type="radio" name="sort" value="memory" id="sort_memory" checked><label for="sort_memory">Memory</label>
-<table style="width:100%" class="system_list" id="processes">
+<table id="processes">
   <thead>
   <tr>
     <th></th>
@@ -9,8 +6,21 @@ Sort: <input type="radio" name="sort" value="cpu" id="sort_cpu"><label for="sort
     <th>CPU %</th>
     <th>Memory</th>
   </tr>
-  </thead>
-  <tbody>
-
+</thead>
+<tbody>
+  <% 10.times do |i| %>
+    <tr>
+      <td>ruby</td>
+      <td class="process">
+        <svg class="chart" data-type="count" data-instance-name="ruby_<%=i%>"></svg><span class="latest-process-value">20</span>
+      </td>
+      <td class="process">
+        <svg class="chart" data-type="cpu" data-instance-name="ruby_<%=i%>"></svg><span class="latest-process-value">20</span>
+      </td>
+      <td class="process">
+        <svg class="chart" data-type="memory" data-instance-name="ruby_<%=i%>"></svg><span class="latest-process-value">20</span>
+      </td>
+    </tr>
+  <% end%>
   </tbody>
 </table>

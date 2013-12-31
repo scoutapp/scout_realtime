@@ -1,0 +1,26 @@
+<!-- top row of metrics -->
+<div class="row metrics_row">
+  <div class="col-md-6 chart_container">
+    <h3>CPU Usage</h3>
+    <div class="latest_value">5.9%</div>
+    <%= erb :graph, :locals => {:chart_type => "cpu-last_minute", :chart_instance_name => ""} %>
+  </div>
+  <div class="col-md-6 chart_container">
+    <h3>Memory Usage</h3>
+    <div class="latest_value">5.9%</div>
+    <%= erb :graph, :locals => {:chart_type => "memory-used_percent", :chart_instance_name => ""} %>
+  </div>
+</div> <!-- end first row of metrics -->
+<!-- bottom row of metrics -->
+<div class="row metrics_row">
+  <div class="col-md-6 chart_container">
+    <h3>Disk Utilization</h3>
+    <div class="latest_value">5.9%</div>
+    <%= erb :graph, :locals => {:chart_type => "disk-utilization", :chart_instance_name => @disks.last} %>
+  </div>
+  <div class="col-md-6 chart_container">
+    <h3>Network Traffic</h3>
+    <div class="latest_value">1,210 KB</div>
+    <%= erb :graph, :locals => {:chart_type => "network-bytes_out", :chart_instance_name => @networks.first} %>
+  </div> <!--  -->
+</div> <!-- end bottom row of metrics -->
