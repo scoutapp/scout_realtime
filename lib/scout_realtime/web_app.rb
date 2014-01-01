@@ -63,14 +63,5 @@ class Scout::Realtime::WebApp < Sinatra::Base
     Scout::Realtime::Main.instance.runner.latest_run.to_json
   end
 
-
-  get '/d3' do
-    erb :d3, :layout => false
-  end
-
-  get '/handlebars' do
-    erb :handlebars
-  end
-
 end
 
