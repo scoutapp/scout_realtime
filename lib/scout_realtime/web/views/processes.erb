@@ -1,26 +1,25 @@
 <table id="processes">
   <thead>
-  <tr>
-    <th></th>
-    <th>Count</th>
-    <th>CPU %</th>
-    <th>Memory</th>
-  </tr>
-</thead>
-<tbody>
-  <% 10.times do |i| %>
     <tr>
-      <td>ruby</td>
-      <td class="process">
-        <svg class="chart" data-type="count" data-instance-name="ruby_<%=i%>"></svg><span class="latest-process-value">20</span>
-      </td>
-      <td class="process">
-        <svg class="chart" data-type="cpu" data-instance-name="ruby_<%=i%>"></svg><span class="latest-process-value">20</span>
-      </td>
-      <td class="process">
-        <svg class="chart" data-type="memory" data-instance-name="ruby_<%=i%>"></svg><span class="latest-process-value">20</span>
-      </td>
+      <th></th>
+      <th>Count</th>
+      <th>CPU %</th>
+      <th>Memory</th>
     </tr>
-  <% end%>
-  </tbody>
+  </thead>
+  <tbody></tbody>
 </table>
+<script id='process-template' type='text/x-handlebars-template'>
+  <tr>
+    <td>{{cmd}}</td>
+    <td class="process">
+      <svg class="chart" data-type="count" data-instance-name=""></svg><span class="latest_value">{{count}}</span>
+    </td>
+    <td class="process">
+      <svg class="chart" data-type="cpu" data-instance-name=""></svg><span class="latest_value">{{cpu}}</span>
+    </td>
+    <td class="process">
+      <svg class="chart" data-type="memory" data-instance-name=""></svg><span class="latest_value">{{memory}}</span>
+    </td>
+  </tr>
+</script>
