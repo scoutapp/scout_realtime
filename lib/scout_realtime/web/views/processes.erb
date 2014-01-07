@@ -13,13 +13,13 @@
   <tr>
     <td>{{cmd}}</td>
     <td class="process">
-      <svg class="chart" data-type="count" data-instance-name=""></svg><span class="latest_value">{{count}}</span>
+      <svg class="chart" data-collector="{{cmd}}" data-type="count" data-instance-name=""></svg><span class="latest_value">{{count}}</span>
     </td>
     <td class="process">
-      <svg class="chart" data-type="cpu" data-instance-name=""></svg><span class="latest_value">{{cpu}}</span>
+      <svg class="chart" data-collector="{{cmd}}" data-type="cpu" data-instance-name=""></svg><span class="latest_value">{{cpu}}</span>
     </td>
     <td class="process">
-      <svg class="chart" data-type="memory" data-instance-name=""></svg><span class="latest_value">{{memory}}</span>
+      <svg class="chart" data-collector="{{cmd}}" data-type="memory" data-instance-name=""></svg><span class="latest_value">{{memory}}</span>
     </td>
   </tr>
 </script>
