@@ -34,6 +34,9 @@ class Scout::Realtime::WebApp < Sinatra::Base
     @disks = (@latest_run[:disk] ||{}).keys.sort
     @networks = (@latest_run[:network] ||{}).keys.sort
     @processes = (@latest_run[:processes] ||{}).map { |k, v| OpenStruct.new(v) }.sort_by { |a| a.memory }.reverse
+    @meta = %w(cpu memory disk network processes).each_with_object({}) do |realtime_class, meta|
+      meta[realtime_class] = Scout::Realtime.const_get(realtime_class.capitalize)::FIELDS
+    end
 
     #"ruby": {
     #    "cpu": 0.488400488400488,
