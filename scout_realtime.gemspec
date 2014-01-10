@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "minitest-reporters"
   spec.add_development_dependency "awesome_print"
+  spec.add_development_dependency "mocha"
   spec.add_development_dependency "pry"
   # spec.add_development_dependency "sinatra-contrib" # vendored for now
 
