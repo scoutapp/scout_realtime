@@ -153,6 +153,7 @@ svg .line {
 
 #sidebar_bottom {
 	background: #35312F;
+  color: #fff;
 }
 
 /** overview charts **/
@@ -239,4 +240,16 @@ svg .line {
   color: #000;
   font-size:18px;
 	font-weight: bold;
+}
+
+.chart_container .chart_info {
+  font-size: 0.8em;
+  height: 1em;
+  color: #000;
+  position: relative;
+  top: -15px;
+}
+
+.chart_section {
+  fill-opacity: 0;
 }
