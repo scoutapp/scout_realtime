@@ -1,5 +1,5 @@
 module Scout::Realtime::MultiAggregator
-  def aggregate(collector_response)
+  def update_historical_metrics(collector_response)
     # since this is a multi-collector, the first level of the result hash is name
     collector_response.each_pair do |name,metrics_hash|
       historical_metrics[name] ||= {}

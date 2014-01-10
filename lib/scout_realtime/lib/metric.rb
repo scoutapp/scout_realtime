@@ -1,20 +1,20 @@
 class Scout::Realtime::Metric
   attr_accessor :historical_metrics
+  attr_reader :latest_run
 
   def initialize
     @historical_metrics = Hash.new
   end
 
-  def run
+  def run!
     begin
-      collector_response = @collector.run
+      @latest_run = @collector.run
     rescue Errno::ENOENT => e
       print "#############################################################################"
       puts "#{e.class}: #{e.message}"
-      collector_response = {}
+      @latest_run = {}
     end
-    aggregate(collector_response)
-    collector_response
+    update_historical_metrics(@latest_run)
   end
 
   def self.metadata
@@ -24,5 +24,13 @@ class Scout::Realtime::Metric
       formatted_meta[field_name]['units'] ||= ''
       formatted_meta[field_name]['precision'] ||= 1 
     end
+  end
+
+  def self.short_name
+    self.to_s.split('::').last.downcase.to_sym
+  end
+
+  def self.descendants
+    [Scout::Realtime::Memory, Scout::Realtime::Cpu, Scout::Realtime::Disk, Scout::Realtime::Network, Scout::Realtime::Processes]
   end
 end
