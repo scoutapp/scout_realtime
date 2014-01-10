@@ -25,7 +25,7 @@ module Scout
         historical_metrics={}
         #[@disks,@cpu,@memory,@networks,@processes].each do |collector|
         [@memory, @disks, @cpu, @networks, @processes].each do |collector|
-          name=collector.class.name.split("::").last.downcase.to_sym
+          name = collector.class.name.split("::").last.downcase.to_sym
           start_time=Time.now
           begin
             collector_res[name] = collector.run
@@ -42,7 +42,7 @@ module Scout
         latest_run.merge!(:collector_meta => collector_meta)
         latest_run.merge!(:system_info => @system_info.merge(:server_time => Time.now.strftime("%I:%M:%S %p"), :server_unixtime => Time.now.to_i))
 
-        @latest_run=latest_run
+        @latest_run = latest_run
         @historical_metrics = historical_metrics
         @num_runs +=1
       end
