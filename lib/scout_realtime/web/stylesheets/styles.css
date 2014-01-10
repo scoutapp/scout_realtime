@@ -235,10 +235,13 @@ svg .line {
   width:100%;
 }
 
+.latest_value {
+  float: right;
+}
+
 .chart_container .latest_value {
-  float:right;
   color: #000;
-  font-size:18px;
+  font-size: 18px;
 	font-weight: bold;
 }
 
