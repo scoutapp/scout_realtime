@@ -6,7 +6,13 @@ class Scout::Realtime::Metric
   end
 
   def run
-    collector_response = @collector.run
+    begin
+      collector_response = @collector.run
+    rescue Errno::ENOENT => e
+      print "#############################################################################"
+      puts "#{e.class}: #{e.message}"
+      collector_response = {}
+    end
     aggregate(collector_response)
     collector_response
   end
