@@ -1,113 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"/>
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>Scout realtime by scoutapp</title>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"/>
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <title>Scout realtime by scoutapp</title>
 </head>
 
 <body>
 <div id="container">
-    <div class="inner">
+  <div class="inner">
 
-        <header>
-            <h1><img src="images/scout_logo.png" style="margin-right:10px;height:38px">Scout realtime</h1>
+    <header>
+      <h1><img src="images/scout_logo.png" style="margin-right:10px;height:38px">Scout realtime</h1>
 
-            <h2>Server and process metrics. <span style="font-weight: bold; color:#00A3CC">Realtime. Beautiful. Free.</span></h2>
-        </header>
+      <h2>Server and process metrics. <span style="font-weight: bold; color:#00A3CC">Realtime. Beautiful. Free.</span>
+      </h2>
+    </header>
 
-        <section id="main_content">
+    <section id="main_content">
 
-            <p>
-                <img width="720" src="https://www.evernote.com/shard/s1/sh/ba7db259-af67-4316-9f19-9ec5ea9ba385/107930be1ce1b8279f007120f29652d4/deep/0/Realtime.png">
-            </p>
+      <p>
+        <img width="720"
+             src="https://www.evernote.com/shard/s1/sh/ba7db259-af67-4316-9f19-9ec5ea9ba385/107930be1ce1b8279f007120f29652d4/deep/0/Realtime.png">
+      </p>
 
-            <h2>
-                <a name="to-get-started" class="anchor" href="#to-get-started"><span
-                        class="octicon octicon-link"></span></a>To get started:</h2>
+      <h2>
+        <a name="to-get-started" class="anchor" href="#to-get-started"><span
+            class="octicon octicon-link"></span></a>To get started:</h2>
 
-            <ul>
-                <li>On the server you want to monitor:
+      <ul>
+        <li>On the server you want to monitor:
 
-                    <ul>
-                        <li>install the gem: <code>gem install scout_realtime</code>
-                        </li>
-                        <li>start the daemon: <code>scout_realtime start</code>
-                        </li>
-                    </ul>
-                </li>
-                <li>on your local computer:
+          <ul>
+            <li>install the gem: <code>gem install scout_realtime</code>
+            </li>
+            <li>start the daemon: <code>scout_realtime start</code>
+            </li>
+          </ul>
+        </li>
+        <li>on your local computer:
 
-                    <ul>
-                        <li><code>ssh -NL 5555:localhost:5555
-                            user@ip_or_hostname</code> (where user@ip_or_hostname is your usual SSH credentials). This creates an SSH tunnel to your server.
-                        </li>
-                        <li>Point your browser to <a target="_new" href="http://localhost:5555">http://localhost:5555</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <p>When you're done, you can stop the daemon with: <code>scout_realtime stop</code></p>
+          <ul>
+            <li><code>ssh -NL 5555:localhost:5555
+              user@ip_or_hostname</code> (where user@ip_or_hostname is your usual SSH credentials). This creates an SSH
+              tunnel to your server.
+            </li>
+            <li>Point your browser to <a target="_new" href="http://localhost:5555">http://localhost:5555</a></li>
+          </ul>
+        </li>
+      </ul>
+      <p>When you're done, you can stop the daemon with: <code>scout_realtime stop</code></p>
 
-            <h2>
-                <a name="why" class="anchor" href="#why"><span class="octicon octicon-link"></span></a>Why?</h2>
+      <h2>
+        <a name="why" class="anchor" href="#why"><span class="octicon octicon-link"></span></a>Why?</h2>
 
-            <p>Scout realtime is a better <code>top</code> command: it gives you disk, memory, network, CPU, and process
-                metrics. And it gives you smooth-flowing charts for everything. <strong>Troubleshooting is so much
-                    easier when you can see a few minutes worth of realtime data</strong> instead of watching individual
-                numbers flash on your terminal window. </p>
+      <p>Scout realtime is a better <code>top</code> command: it gives you disk, memory, network, CPU, and process
+        metrics. And it gives you smooth-flowing charts for everything. <strong>Troubleshooting is so much
+          easier when you can see a few minutes worth of realtime data</strong> instead of watching individual
+        numbers flash on your terminal window. </p>
 
-            <h2>
-                <a name="questions--troubleshooting" class="anchor" href="#questions--troubleshooting"><span
-                        class="octicon octicon-link"></span></a>Questions &amp; troubleshooting</h2>
-
-
-            <h3>Something isn't working. Where's the log?</h3>
-            By default, the a log is written to <code>~/scout_realtime.log</code>
-
-            <h3>Does my server need to have a public IP or domain name?</h3> Yes, you need a public IP or domain
-            name to view Scout Realtime in your browser.
-
-            <h3>Installing the gem didn't work.</h3>
-            You need Ruby 1.8.7+ on your server to run Scout Realtime.
-            Try <code>which ruby</code> (to confirm you have Ruby), <code>ruby -v</code> (to show Ruby's version), and
-            <code>which gem</code> to confirm you have Ruby gems (Ruby's package manager) available.
-
-            <h3>Can multiple people view the realtime stats?</h3>
-            Yes. You'll probably want to open a port in your firewall instead of using the SSH tunnel: <code>sudo
-            iptables -A INPUT -p tcp --dport 5555 -j ACCEPT</code>
-
-            <h3>The SSH tunnel is a pain. Is there a way to set up persistent access?</h3>
-            Yes -- open a port in your firewall using the iptables command above.
-
-            <h3>Is opening up a port safe?</h3>
-            It's as safe or safer than any any other service you have listening for HTTP
-            traffic. The realtime web server only serves two endpoints, and there's nothing available at either of those
-            endpoints that can be used in an attack.
-
-            <h3>5555 is a strange number. Can I run it on a different port?</h3>
-            Yes. <code>scout_realtime help</code> for options.
-
-            <h3>I want to log written someplace other than my home directory.</h3>
-            You can do that. See <code>scout_realtime help</code> for options.
-
-            <h3>How much resources will this take if I leave it running?</h3>
-            The process will take ~1% of CPU and a negligible amount of memory. If you turn off the metric collection (by clicking the pause button), it will take 0% of CPU.
-
-        </section>
-
-        <footer>
-            Scout realtime is maintained by <a href="https://github.com/scoutapp">scoutapp</a>
-        </footer>
+      <h2>
+        <a name="questions--troubleshooting" class="anchor" href="#questions--troubleshooting"><span
+            class="octicon octicon-link"></span></a>Questions &amp; troubleshooting</h2>
 
 
-    </div>
+      <h3>Something isn't working. Where's the log?</h3>
+      By default, the a log is written to <code>~/scout_realtime.log</code>
+
+      <h3>Does my server need to have a public IP or domain name?</h3> Yes, you need a public IP or domain
+      name to view Scout Realtime in your browser.
+
+      <h3>Installing the gem didn't work.</h3>
+      You need Ruby 1.8.7+ on your server to run Scout Realtime.
+      Try <code>which ruby</code> (to confirm you have Ruby), <code>ruby -v</code> (to show Ruby's version), and
+      <code>which gem</code> to confirm you have Ruby gems (Ruby's package manager) available.
+
+      <h3>Can multiple people view the realtime stats?</h3>
+      Yes. You'll probably want to open a port in your firewall instead of using the SSH tunnel: <code>sudo
+      iptables -A INPUT -p tcp --dport 5555 -j ACCEPT</code>
+
+      <h3>The SSH tunnel is a pain. Is there a way to set up persistent access?</h3>
+      Yes -- open a port in your firewall using the iptables command above.
+
+      <h3>Is opening up a port safe?</h3>
+      It's as safe or safer than any any other service you have listening for HTTP
+      traffic. The realtime web server only serves two endpoints, and there's nothing available at either of those
+      endpoints that can be used in an attack.
+
+      <h3>5555 is a strange number. Can I run it on a different port?</h3>
+      Yes. <code>scout_realtime help</code> for options.
+
+      <h3>I want to log written someplace other than my home directory.</h3>
+      You can do that. See <code>scout_realtime help</code> for options.
+
+      <h3>How much resources will this take if I leave it running?</h3>
+      The process will take ~1% of CPU and a negligible amount of memory. If you turn off the metric collection (by
+      clicking the pause button), it will take 0% of CPU.
+
+    </section>
+
+    <footer>
+      Scout realtime is maintained by <a href="https://github.com/scoutapp">scoutapp</a>
+    </footer>
+
+
+  </div>
 </div>
 </body>
 </html>
