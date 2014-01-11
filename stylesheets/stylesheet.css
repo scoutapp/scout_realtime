@@ -51,16 +51,16 @@ body {
   font-size: 1em;
   line-height: 1.5; 
   background: #e7e7e7 url(../images/body-bg.png) 0 0 repeat;
-  font-family: 'Helvetica Neue', Helvetica, Arial, serif;
+  font-family: "proxima-nova","Lucida Grande", sans-serif;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
   color: #6d6d6d;
 }
 
 a {
-  color: #d5000d;
+  color: #333;
 }
 a:hover {
-  color: #c5000c;
+  text-decoration: underline;
 }
 
 header {
@@ -69,7 +69,8 @@ header {
 }
 
 header h1 {
-  font-family: 'Chivo', 'Helvetica Neue', Helvetica, Arial, serif; font-weight: 900;
+  font-family: "proxima-nova","Lucida Grande", sans-serif;
+  font-weight: 900;
   letter-spacing: -1px;
   font-size: 48px;
   color: #303030;
@@ -79,7 +80,7 @@ header h1 {
 header h2 {
   letter-spacing: -1px;
   font-size: 24px;
-  color: #aaa;
+  color: #909090;
   font-weight: normal;
   line-height: 1.3;
 }
@@ -90,7 +91,7 @@ header h2 {
 }
 
 .inner {
-  width: 620px;
+  width: 720px;
   margin: 0 auto;
 }
 
@@ -247,12 +248,12 @@ h1 {
 h2 {
   font-size: 22px;
   font-weight: bold;
-  color: #303030;
+  color: #00A3CC;
   margin-bottom: 8px;
 } 
 
 h3 {
-  color: #d5000d;
+  color: #303030;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
