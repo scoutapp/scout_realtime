@@ -14,7 +14,7 @@ class Scout::Realtime::Metric
       puts "#{e.class}: #{e.message}"
       @latest_run = {}
     end
-    update_historical_metrics(@latest_run)
+    update_historical_metrics(latest_run)
   end
 
   def self.metadata
