@@ -20,7 +20,7 @@
     <header>
       <h1><img src="images/scout_logo.png" style="margin-right:10px;height:38px">Scout Realtime</h1>
 
-      <h2>Server and process metrics. <span style="font-weight: bold; color:#00A3CC">Fast. Beautiful. Free.</span>
+      <h2>Realtime Server metrics. <span style="font-weight: bold; color:#00A3CC">Easy. Beautiful. Free.</span>
       </h2>
     </header>
 
@@ -28,49 +28,51 @@
 
       <p>
         <img width="720"
-             src="https://www.evernote.com/shard/s1/sh/ba7db259-af67-4316-9f19-9ec5ea9ba385/107930be1ce1b8279f007120f29652d4/deep/0/Realtime.png">
+             src="https://www.evernote.com/shard/s1/sh/0b0c8bdb-9430-4758-8ce5-98ce385c2c76/339cf36badbdaf6d9f99b964a03358de/deep/0/Realtime.png">
       </p>
 
       <h2>Use it on Your Server</h2>
 
       <p>Requirements: SSH access to your server, and Ruby 1.8.7 or later.</p>
 
+
+      <p><strong>1) On the server you want to monitor:</strong></p>
+
       <ul>
-        <li>1) On the server you want to monitor:
+        <li>install the gem: <code>gem install scout_realtime</code></li>
+        <li>start the daemon: <code>scout_realtime start</code></li>
+      </ul>
 
-          <ul>
-            <li>install the gem: <code>gem install scout_realtime</code>
-            </li>
-            <li>start the daemon: <code>scout_realtime start</code>
-            </li>
-          </ul>
+      <p><strong>1) On your local computer:</strong></p>
+      <ul>
+        <li><code>ssh -NL 5555:localhost:5555
+          user@ip_or_hostname</code> (where user@ip_or_hostname is your usual SSH access). This creates an SSH
+          tunnel to your server.
         </li>
-        <li>2) On your local computer:
-
-          <ul>
-            <li><code>ssh -NL 5555:localhost:5555
-              user@ip_or_hostname</code> (where user@ip_or_hostname is your usual SSH access). This creates an SSH
-              tunnel to your server.
-            </li>
-            <li>Point your browser to <a target="_new" href="http://localhost:5555">http://localhost:5555</a></li>
-          </ul>
-        </li>
+        <li>Point your browser to <a target="_new" href="http://localhost:5555">http://localhost:5555</a></li>
       </ul>
 
       <h2>Why Scout Realtime?</h2>
 
-      <p><strong>Charts make all the difference.</strong> With top or htop, you're watching single values flash on and off the page. Trying to catch the right blip at the right instant is a real headache.
+      <p><strong>Charts make all the difference.</strong> With top or htop, you're watching single values flash on and
+        off the page. Trying to catch the right blip at the right instant is a real headache.
       </p>
-      <p>With Scout realtime, every metric is charted and constantly updated. <strong>Metrics come alive in the context of historical charts.</strong>
+
+      <p>With Scout realtime, every metric is charted and constantly updated. <strong>Metrics come alive in the context
+        of historical charts.</strong>
 
       <h2>Is this Secure?</h2>
 
       <strong>Yes.</strong>
 
       <ul>
-        <li>It's built by <a href="https://scoutapp.com">Scout Monitoring</a>, a SaaS monitoring solution trusted by tens of thousands of developers. We've been around for years, and we have a reputation to uphold.</li>
+        <li>It's built by <a href="https://scoutapp.com">Scout Monitoring</a>, a SaaS monitoring solution trusted by
+          tens of thousands of developers. We've been around for years, and we have a reputation to uphold.
+        </li>
         <li>The daemon is read-only - there's no way a malicious user could direct an attack through its URL.</li>
-        <li>The code is 100% open-source, you can examine it <a href="https://github.com/scoutapp/scout_realtime">here</a>. </li>
+        <li>The code is 100% open-source, you can examine it <a
+            href="https://github.com/scoutapp/scout_realtime">here</a>.
+        </li>
       </ul>
 
 
@@ -81,8 +83,8 @@
       name to view Scout Realtime in your browser.
 
       <h3>Can multiple people view the realtime stats?</h3>
-      Yes. Open a port in your firewall instead of using the SSH tunnel: <code>sudo
-      iptables -A INPUT -p tcp --dport 5555 -j ACCEPT</code>
+      Yes. Open a port in your firewall instead of using the SSH tunnel:
+      <br><code>sudo iptables -A INPUT -p tcp --dport 5555 -j ACCEPT</code>
 
       <h3>The SSH tunnel is a pain. Is there a way to set up persistent access?</h3>
       Yes, just open a port in your firewall using the iptables command above.
@@ -95,7 +97,8 @@
 
       <h3>How much CPU will this consume if I leave it running?</h3>
       The daemon will take ~1% of CPU while it's running. If you turn off the metric collection (by
-      clicking the pause button on the web page), it will take 0%, and you'll still be able to visit the web page and re-enable metrics at any time.
+      clicking the pause button on the web page), it will take 0%, and you'll still be able to visit the web page and
+      re-enable metrics at any time.
 
       <h3>Installing the gem didn't work.</h3>
       You need Ruby 1.8.7+ on your server to run Scout Realtime.
@@ -106,11 +109,12 @@
       By default, the a log is written to <code>~/.scout/scout_realtime.log</code>
 
       <h3>How do I stop the daemon?</h3>
+
       <p><code>scout_realtime stop</code></p>
     </section>
 
     <footer>
-      Scout realtime is maintained by <a href="https://github.com/scoutapp">scoutapp</a>
+      Scout Realtime is maintained by <a href="https://scoutapp.com">Scout Monitoring</a>
     </footer>
 
 
