@@ -34,9 +34,17 @@ To start the daemon:
 To stop it:
       scout_realtime stop
 
-* You'll need to either SSH tunnel or open a port in your firewall (default:5555). See http://scoutapp.github.io/scout_realtime for details
-* Point your browser to http://localhost:5555 (if you tunneled) or http://your-ip-or-hostname:5555 (if you opened a port)
+To view in your browser, do ONE of the following:
+
+A) create an SSH tunnel: ssh -NL 5555:localhost:5555 user@ip_or_hostname (run that command on your own computer, not the server)
+   then point your browser to: http://localhost:5555
+   --- OR ---
+B) open a port in your firewall: sudo iptables -A INPUT -p tcp --dport 5555 -j ACCEPT (run that command on your server)
+   then point your browser to: http://your-ip-or-hostname:5555
+
 * FYI, the log file is: #{log_path} by default
+* See http://scoutapp.github.io/scout_realtime for more info
+
 
 Advanced options:
   EOS
