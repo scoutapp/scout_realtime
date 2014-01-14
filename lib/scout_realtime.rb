@@ -3,7 +3,7 @@ require "scout_realtime/version"
 $LOAD_PATH << File.join(File.dirname(__FILE__))
 
 # Uncomment this to load the server_metrics project code instead of the gem. Obviously, for development only
-# $LOAD_PATH.unshift File.join(File.dirname(__FILE__), "/../../server_metrics/lib")
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), "/../../server_metrics/lib")
 
 # load sinatra, etc in vendor instead of from gems. Just remove this (and add depedencies in gemspec) to use gems instead
 vendor_path=File.expand_path(File.join(File.dirname(__FILE__),"vendor"))
@@ -40,7 +40,7 @@ module Scout
       @@logger=(l);
     end
 
-    # this is here only becuase there's no obvious other place to put it
+    # this is here only because there's no obvious other place to put it
     def self.port_occupied?(port, seconds=1)
       Timeout::timeout(seconds) do
         begin
