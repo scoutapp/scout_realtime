@@ -245,5 +245,5 @@ svg .line {
 }
 
 #processes .latest_value {
-  display:none;
+  float:right;
 }
