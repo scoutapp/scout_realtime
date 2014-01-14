@@ -24,8 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "awesome_print"
   spec.add_development_dependency "mocha"
   spec.add_development_dependency "pry"
-  # spec.add_development_dependency "sinatra-contrib" # vendored for now
 
-  spec.add_runtime_dependency "server_metrics", "=> 1.0.2"
-  #spec.add_runtime_dependency "sinatra" # vendored for now
+  # Runtime dependencies
+  spec.add_runtime_dependency "server_metrics", "~> 1.0.2"
 end
