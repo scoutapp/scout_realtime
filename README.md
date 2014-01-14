@@ -2,7 +2,7 @@
 
 Stream realtime server and process metrics to your browser!
 
-<img src="https://www.evernote.com/shard/s1/sh/ba7db259-af67-4316-9f19-9ec5ea9ba385/107930be1ce1b8279f007120f29652d4/deep/0/Realtime.png">
+<img src="https://www.evernote.com/shard/s1/sh/0b0c8bdb-9430-4758-8ce5-98ce385c2c76/339cf36badbdaf6d9f99b964a03358de/deep/0/Realtime.png">
 
 
 
