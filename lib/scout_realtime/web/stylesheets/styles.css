@@ -157,6 +157,10 @@ svg .line {
 }
 
 /** overview charts **/
+.chart {
+  height:55px;
+  width:100%;
+}
 
 .chart_container h3 {
 	color: #A3A3A3;
@@ -164,6 +168,27 @@ svg .line {
 	margin-top: 0;
 	float: left;
 }
+
+.chart_container .latest_value {
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  float: right;
+}
+
+.chart_container .chart_info {
+  font-size: 0.8em;
+  height: 1em;
+  color: #000;
+  position: relative;
+  top: -15px;
+}
+
+.chart_section {
+  fill-opacity: 0;
+}
+
+
 
 /** processes table **/
 
@@ -178,10 +203,6 @@ svg .line {
 	padding: 10px 20px;
 	border-bottom: 1px solid #eaeaea;
 	background: #fff;
-}
-
-#processes .chart {
-	height: 15px;
 }
 
 #processes td:not(:first-child) {
@@ -216,43 +237,13 @@ svg .line {
 	display: inline-block;
 }
 
-.process_chart {
-	min-width: 150px;
-	width:80%;
-	height: 15px;
-}
 
 /* process chart */
 
-.process_chart {
-  width:160px;
-  height:20px;
-  display:inline-block;
+#processes .chart {
+  height: 15px;
 }
 
-.chart {
-  height:55px;
-  width:100%;
-}
-
-.latest_value {
-  float: right;
-}
-
-.chart_container .latest_value {
-  color: #000;
-  font-size: 18px;
-	font-weight: bold;
-}
-
-.chart_container .chart_info {
-  font-size: 0.8em;
-  height: 1em;
-  color: #000;
-  position: relative;
-  top: -15px;
-}
-
-.chart_section {
-  fill-opacity: 0;
+#processes .latest_value {
+  display:none;
 }
