@@ -6,11 +6,11 @@ require 'scout_realtime/version'
 Gem::Specification.new do |spec|
   spec.name          = "scout_realtime"
   spec.version       = Scout::Realtime::VERSION
-  spec.authors       = ["Andre Lewis"]
-  spec.email         = ["andre@scoutapp.com"]
-  spec.description   = "Standalone realtime proof-of-concept"
+  spec.authors       = ["Andre Lewis", "Derek Haynes", "Matt Rose"]
+  spec.email         = ["support@scoutapp.com"]
+  spec.description   = "Realtime server metrics in your browser."
   spec.summary       = ""
-  spec.homepage      = "http://scoutapp.com"
+  spec.homepage      = "http://scoutapp.github.io/scout_realtime/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
