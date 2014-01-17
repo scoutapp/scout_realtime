@@ -61,8 +61,14 @@ log_path = opts[:log_path]
 pid_path = opts[:pid_path]
 
 startup_message=<<EOS
-* if you haven't already, open port #{opts[:port]} in your firewall. See http://scoutapp.github.io/scout_realtime for details
-* Point your browser to http://your-ip-or-hostname:#{opts[:port]}
+To view in your browser, do ONE of the following:
+
+A) create an SSH tunnel: ssh -NL #{opts[:port]}:localhost:#{opts[:port]} user@ip_or_hostname (run that command on your own computer, not the server)
+   then point your browser to: http://localhost:#{opts[:port]}
+   --- OR ---
+B) open a port in your firewall: sudo iptables -A INPUT -p tcp --dport #{opts[:port]} -j ACCEPT (run that command on your server)
+   then point your browser to: http://your-ip-or-hostname:#{opts[:port]}
+
 * FYI, the log file is: #{log_path}
 EOS
 

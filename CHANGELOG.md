@@ -1,3 +1,7 @@
+## 0.5.3
+
+* Update executable output - instructions for accessing from your browser.
+
 ## 0.5.2
 
 * Updating authors and gemspec metadata.
