@@ -218,7 +218,7 @@ svg .line {
 	font-size: 14px;
 	font-weight: bold;
 	width: 20%;
-	vertical-align: bottom;
+	vertical-align: top;
 }
 
 #processes tr:last-child td:first-child{
@@ -227,10 +227,14 @@ svg .line {
 
 #processes td {
 	color: #666;
-	padding: 14px 20px;
+	padding: 14px 10px;
 	border-bottom: 1px solid #eaeaea;
 	font-size: 13px;
 	background: #fff;
+}
+
+#processes td span.chart_container {
+	width: 50%;
 }
 
 #processes tr.compact td {
@@ -247,8 +251,9 @@ svg .line {
 
 #processes .chart {
   height: 15px;
+	width: 70%;
 }
 
-#processes .latest_value {
-  float:right;
+#processes .latest_value, #processes .chart_info {
+	padding-left: 10px;
 }
