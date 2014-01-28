@@ -39,6 +39,7 @@ svg .line {
 
 .main_container {
 	border-top: 7px solid #00A3CC;
+	min-width: 960px;
 }
 
 /** bootstrap overrides for 100% height columns **/
@@ -60,6 +61,7 @@ svg .line {
 
 .container .row > .col-md-8 {
 	border-bottom: 1px solid #E1E1E1;
+	width:inherit;
 }
 
 /** top area - contains the header + overview **/
@@ -117,6 +119,12 @@ svg .line {
 
 #top .chart_container{
 	margin-bottom: 20px;
+}
+
+/* sidebar */
+
+#sidebar_top, #sidebar_bottom.col-md-4 {
+	width: 330px;
 }
 
 /* top sidebar */
