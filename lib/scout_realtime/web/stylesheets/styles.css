@@ -197,6 +197,19 @@ svg .line {
 
 /** processes table **/
 
+.sort-container {
+  position:relative;
+}
+.sort-container .sort-up, .sort-container .sort-down {
+  font-size:8px;
+  position:absolute;
+  display:none;
+}
+
+.sort-container .sort-down {
+  top:3px;
+}
+
 #processes {
 	width: 100%;
 	margin-top: 10px;
@@ -208,7 +221,13 @@ svg .line {
 	padding: 10px 20px;
 	border-bottom: 1px solid #eaeaea;
 	background: #fff;
+  cursor: pointer;
 }
+
+#processes thead th:hover {
+  background: #e1edf7;
+}
+
 
 #processes td:not(:first-child) {
 		width: 26.6666%; /* 3 cols of data. 1st col in table is 20% */
