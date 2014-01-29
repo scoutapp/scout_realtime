@@ -1,7 +1,7 @@
 class Scout::Realtime::Processes < Scout::Realtime::Metric
   include Scout::Realtime::MultiAggregator
 
-  FIELDS = { :cpu              => {'label'=>'CPU usage', 'units'=>'', 'precision'=>2},
+  FIELDS = { :cpu              => {'label'=>'CPU usage', 'units'=>'%', 'precision'=>2},
              :memory           => {'units'=>'MB', 'precision'=>1},
              :count            => {'units'=>'', 'precision'=>0}
            }
