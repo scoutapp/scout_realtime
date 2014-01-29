@@ -117,10 +117,6 @@ svg .line {
 	margin:0;
 }
 
-#top .chart_container{
-	margin-bottom: 20px;
-}
-
 /* sidebar */
 
 #sidebar_top, #sidebar_bottom.col-md-4 {
@@ -169,10 +165,14 @@ svg .line {
 }
 
 /** overview charts **/
+
+*.chart_container {
+	margin-bottom: 20px;
+}
+
 .chart {
   height:55px;
   width:100%;
-  cursor:crosshair;
 }
 
 .chart_container h3 {
@@ -182,19 +182,29 @@ svg .line {
 	float: left;
 }
 
-.chart_container .latest_value {
+.chart_container .latest_value{
   color: #000;
   font-size: 18px;
   font-weight: bold;
   float: right;
+  margin-top:-5px;
 }
 
-.chart_container .chart_info {
+*.chart_container .chart_info {
   font-size: 0.8em;
   height: 1em;
   color: #000;
   position: relative;
-  top: -15px;
+	font-weight: bold;
+	margin-right: 10px;
+	float: right;
+}
+
+*.chart_container .chart_info span {
+	background: lightgray;
+	border-radius: 3px;
+	margin-left: 10px;
+	padding: 2px 5px;
 }
 
 .chart_section {
