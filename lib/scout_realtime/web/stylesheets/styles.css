@@ -27,6 +27,12 @@ svg .line {
   stroke-width: 2.5px;
 }
 
+.axis {
+  fill: none;
+  stroke-width: 0.5px;
+  stroke: #A8A5A2;
+}
+
 .container {
   margin-top: 20px;
   display:table;
@@ -103,6 +109,10 @@ svg .line {
 	padding-bottom: 15px;
 }
 
+#top .row.metrics_row .col-md-6 {
+  padding-left: 0;
+}
+
 #top .row{
 	background: #FCF8F6;
 }
@@ -171,7 +181,7 @@ svg .line {
 }
 
 .chart {
-  height:55px;
+  height:85px;
   width:100%;
 }
 
