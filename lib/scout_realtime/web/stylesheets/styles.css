@@ -31,6 +31,7 @@ svg .line {
   fill: none;
   stroke-width: 0.5px;
   stroke: #A8A5A2;
+  font-size: 10px;
 }
 
 .container {
