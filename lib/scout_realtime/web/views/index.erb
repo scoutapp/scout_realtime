@@ -1,21 +1,23 @@
-<div class="row">
-  <div class="col-md-8" style="height:100%">
-    <div id="top" class="container">
+<table id="main_container">
+<tr>
+  <td id="header">
       <%= erb :header %>
-      <%= erb :overview_charts%>
-    </div> <!-- top -->
-  </div> <!-- col-md-8 -->
-  <!-- sidebar -->
-  <div class="col-md-4" id="sidebar_top" style="height:100%">
+  </td>
+  <td id="sidebar_top" rowspan=2>
     <%= erb :sidebar %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-8">
+  </td>
+</tr>
+<tr>
+  <td id="overview_charts">
+      <%= erb :overview_charts%>
+  </td>
+</tr> 
+<tr>
+  <td>
     <h2><span>Top</span> Processes</h2>
     <%= erb :processes %>
-  </div>
-  <!-- sidebar -->
-  <div class="col-md-4" id="sidebar_bottom"></div>
-</div>
+  </td>
+  <td id="sidebar_bottom"></td>
+</tr>
+</table>
 <script src="/javascripts/application.js"></script>

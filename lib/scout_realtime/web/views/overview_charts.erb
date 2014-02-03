@@ -1,30 +1,26 @@
 <!-- top row of metrics -->
-<div class="row metrics_row">
-  <div class="col-md-6 chart_container">
+  <div class="overview_chart_container">
     <h3>CPU Usage</h3>
     <div class="latest_value"></div>
     <div class="chart_info"></div>
     <%= erb :graph, :locals => {:chart_collector => "cpu", :chart_metrics => ["io_wait", "system", "user"], :chart_instance_name => "", :chart_y_scale_max => "100"} %>
   </div>
-  <div class="col-md-6 chart_container">
+  <div class="overview_chart_container">
     <h3>Memory Usage</h3>
     <div class="latest_value"></div>
     <div class="chart_info"></div>
     <%= erb :graph, :locals => {:chart_collector => "memory", :chart_metrics => ["used_percent"], :chart_instance_name => "", :chart_y_scale_max => "100"} %>
   </div>
-</div> <!-- end first row of metrics -->
 <!-- bottom row of metrics -->
-<div class="row metrics_row">
-  <div class="col-md-6 chart_container">
+  <div class="overview_chart_container">
     <h3>Disk Utilization</h3>
     <div class="latest_value"></div>
     <div class="chart_info"></div>
     <%= erb :graph, :locals => {:chart_collector => "disk", :chart_metrics => ["utilization"], :chart_instance_name => @disks.last, :chart_y_scale_max => "100"} %>
   </div>
-  <div class="col-md-6 chart_container">
+  <div class="overview_chart_container">
     <h3>Network Traffic</h3>
     <div class="latest_value"></div>
     <div class="chart_info"></div>
     <%= erb :graph, :locals => {:chart_collector => "network", :chart_metrics => ["bytes_in", "bytes_out"], :chart_instance_name => @networks.first, :chart_y_scale_max => ""} %>
   </div> <!--  -->
-</div> <!-- end bottom row of metrics -->
