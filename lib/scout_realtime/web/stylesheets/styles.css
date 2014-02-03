@@ -50,35 +50,53 @@ svg .line {
 	border-bottom: 1px solid #E1E1E1;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	position: relative;
 }
 
 /* time + pause/play */
 #toggle {
-	border: 1px solid #E1E1E1;
-	border-radius: 20px;
-	background: #fff;
 	float: right;
-	padding: 5px 14px;
 	font-size: 12px;
 	color: #000;
 	font-weight: bold;
-  cursor:pointer;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+#toggle #report-time {
+  position: absolute;
+  right: 125px;
+  top: 14px;
+  width: 80px;
+  text-align: right;
+}
+
+#toggle .button {
+	padding: 0 20px;
+	height: 44px;
+	display: inline-block;
+	margin: 0;
+  transition: 0.2s background-color;
+}
+
+#toggle .button:hover {
+	cursor: pointer;
+	background-color: #FCF8F6;
+}
+
+#toggle #off {
+	border: 1px solid #E1E1E1;
+	border-width: 0 1px;
+	margin-left: 10px;
 }
 
 #toggle img {
+	padding-top: 15px;
 	vertical-align: middle;
 }
 
-#toggle span {
-	padding-top: 6px;
-}
-
-#toggle *:nth-child(2){
-	margin-left: 10px;
-	margin-right: 5px;
-}
-
-#toggle .disabled {
+#toggle .disabled img {
 	opacity: 0.3;
 }
 
