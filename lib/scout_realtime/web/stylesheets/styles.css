@@ -14,6 +14,12 @@ h2 span {
 	font-weight: normal;
 }
 
+/* default chart styling */
+.chart {
+  height:85px;
+  width:100%;
+}
+
 /* the color used for lines in d3 charts */
 svg .line {
   fill: none;
@@ -39,7 +45,7 @@ svg .line {
 }
 
 #main_container td {
-	padding: 0 15px;
+	padding: 0 30px;
 }
 
 /*** header ***/
@@ -150,33 +156,20 @@ svg .line {
 /*** overview charts ***/
 
 td#overview_charts{
-	padding-top: 10px;
+	padding-top: 20px;
+	padding-right: 0; /* svg charts have a 30px margin - in effect, this ends up applying the 30px right margin */ 
 	background: #FCF8F6;
 	border-bottom: 1px solid #E1E1E1;
 }
 
 .overview_chart_container {
-	margin-bottom: 20px;
 	display: inline-block;
-	width: 49%;
+	width: 49.5%;
 }
 
 .overview_chart_container .chart_container {
   width: 100%;
   overflow: hidden;
-}
-
-.overview_chart_container .axis {
-	display: none;
-}
-
-.overview_chart_container:hover .axis {
-	display: block;
-}
-
-.chart {
-  height:85px;
-  width:100%;
 }
 
 .overview_chart_container h3 {
@@ -185,6 +178,7 @@ td#overview_charts{
 	margin-top: 0;
 	float: left;
 	font-weight: normal;
+	margin-bottom:0
 }
 
 .overview_chart_container .latest_value{
@@ -194,6 +188,7 @@ td#overview_charts{
   float: right;
   margin-top:-5px;
 	font-family: 'proxima-nova-condensed';
+	margin-right: 30px; /* charts have a 30px right margin - lines up value w/far-right of chart */
 }
 
 .overview_chart_container .chart_info {
@@ -215,6 +210,21 @@ td#overview_charts{
 
 .chart_section {
   fill-opacity: 0;
+}
+
+/* overview chart overrides */
+
+.overview_chart_container .axis {
+	display: none;
+}
+
+.overview_chart_container:hover .axis {
+	display: block;
+}
+
+.chart.overview_chart {
+  margin-left: -30px; /* chart has a 30px left margin */
+  margin-top: -15px; /* accounts for y-axis value. removing spacing btw h3 and chart so mouseover doesn't have a dead area */  
 }
 
 .overview_chart_container svg .line {
