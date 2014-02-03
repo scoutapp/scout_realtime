@@ -143,6 +143,11 @@ td#overview_charts{
 	width: 49%;
 }
 
+.overview_chart_container .chart_container {
+  width: 100%;
+  overflow: hidden;
+}
+
 .overview_chart_container .axis {
 	display: none;
 }
