@@ -44,7 +44,7 @@ svg .line {
 	border-collapse: collapse;
 }
 
-#main_container td {
+#main_container > tbody > tr > td:first-child {
 	padding: 0 30px;
 }
 
@@ -62,7 +62,7 @@ svg .line {
 /* time + pause/play */
 #toggle {
 	float: right;
-	font-size: 12px;
+	font-size: 13px;
 	color: #000;
 	font-weight: bold;
 	position: absolute;
@@ -164,7 +164,7 @@ td#overview_charts{
 
 .overview_chart_container {
 	display: inline-block;
-	width: 49.5%;
+	width: 49.5%;	
 }
 
 .overview_chart_container .chart_container {
@@ -172,37 +172,50 @@ td#overview_charts{
   overflow: hidden;
 }
 
+.overview_chart_container h3 img {
+	display:inline-block;
+	margin-right:3px;
+	margin-top: 2px;
+	vertical-align:top;
+}
+
 .overview_chart_container h3 {
-	color: #A3A3A3;
+	color: #000;
 	font-size: 16px;
 	margin-top: 0;
 	float: left;
 	font-weight: normal;
-	margin-bottom:0
+	margin-bottom:4px;
+	text-shadow: 0 1px 0 #fff;
 }
 
 .overview_chart_container .latest_value{
   color: #000;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
+ 	font-weight: bold;
   float: right;
-  margin-top:-5px;
-	font-family: 'proxima-nova-condensed';
+  margin-top:-3px;
 	margin-right: 30px; /* charts have a 30px right margin - lines up value w/far-right of chart */
+	border: 1px solid #E1E1E1;
+	width: 17%;
+	padding: 2px 0;
+	text-align: center;
+	border-radius: 5px;
+	background: #fff;
 }
 
 .overview_chart_container .chart_info {
-  font-size: 0.8em;
-  height: 1em;
-  color: #000;
+  font-size: 11px;
+  color: #fff;
   position: relative;
-	font-weight: bold;
+	font-weight: normal;
 	margin-right: 10px;
 	float: right;
+	margin-top:3.5px;
 }
 
 .overview_chart_container .chart_info span {
-	background: lightgray;
+	background: #c3c4c4;
 	border-radius: 3px;
 	margin-left: 10px;
 	padding: 2px 5px;
