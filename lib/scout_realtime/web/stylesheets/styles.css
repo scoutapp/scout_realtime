@@ -1,120 +1,109 @@
-* {
-	font-family: "proxima-nova","Lucida Grande", sans-serif;
-}
+/*** overall styles ***/
 
-h1, h2, h3 {
-	font-family: "proxima-nova","Lucida Grande", sans-serif;
-	font-weight: bold;
+body {
+	margin: 0;
+	font-family: "proxima-nova","Lucida Grande", sans-serif; /* proxima-nova is from typekit */
 }
 
 h2 {
 	font-size: 18px;
 }
 
-h3 {
-	font-family: "proxima-nova","Lucida Grande", sans-serif;
-	font-weight: bold;
-}
-
+/* makes 'top' smaller in 'top processes' */
 h2 span {
 	font-weight: normal;
+}
+
+/* default chart styling */
+.chart {
+  height:85px;
+  width:100%;
 }
 
 /* the color used for lines in d3 charts */
 svg .line {
   fill: none;
-  stroke: #A8A5A2;
+  stroke: #A8A5A2; /* off-gray */
   stroke-width: 2.5px;
 }
 
-.container {
-  margin-top: 20px;
-  display:table;
-  width: 100%;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 0;
-  margin:0;
+.axis {
+  fill: none;
+  stroke-width: 0.5px;
+  stroke: #A8A5A2; /* off-gray - same as line color*/
+  font-size: 10px;
 }
 
-.main_container {
-	border-top: 7px solid #00A3CC;
+/*** main layout container - everything is inside of this ***/
+
+#main_container {
+	border-top: 7px solid #00A3CC; /* blue */
 	min-width: 960px;
+	width: 100%;
+	margin:0;
+	border-collapse: collapse;
 }
 
-/** bootstrap overrides for 100% height columns **/
-
-.row
-{
-	height: 100%;
-  display: table-row;
+#main_container > tbody > tr > td:first-child {
+	padding: 0 30px;
 }
 
-.col-md-8, .col-md-4, .col-md-6
-{
-	display: table-cell;
-	float: none;
-	vertical-align: top;
-}
+/*** header ***/
 
-/** general layout **/
-
-.container .row > .col-md-8 {
+#main_container #header {
+	margin: 0;
+	background: #fff;
 	border-bottom: 1px solid #E1E1E1;
-	width:inherit;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	position: relative;
 }
-
-/** top area - contains the header + overview **/
 
 /* time + pause/play */
 #toggle {
-	border: 1px solid #E1E1E1;
-	border-radius: 20px;
-	background: #fff;
 	float: right;
-	padding: 5px 14px;
-	font-size: 12px;
+	font-size: 13px;
 	color: #000;
 	font-weight: bold;
-  cursor:pointer;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
+#toggle #report-time {
+  position: absolute;
+  right: 125px;
+  top: 14px;
+  width: 80px;
+  text-align: right;
+}
+
+#toggle .button {
+	padding: 0 20px;
+	height: 44px;
+	display: inline-block;
+	margin: 0;
+  transition: 0.2s background-color;
+}
+
+#toggle .button:hover {
+	cursor: pointer;
+	background-color: #FCF8F6;
+}
+
+#toggle #off {
+	border: 1px solid #E1E1E1;
+	border-width: 0 1px;
+	margin-left: 10px;
+}
 
 #toggle img {
+	padding-top: 15px;
 	vertical-align: middle;
 }
 
-#toggle span {
-	padding-top: 6px;
-}
-
-#toggle *:nth-child(2){
-	margin-left: 10px;
-	margin-right: 5px;
-}
-
-#toggle .disabled {
+#toggle .disabled img {
 	opacity: 0.3;
-}
-
-
-#top .row.header_row .col-md-6{
-	padding-top: 10px;
-	padding-bottom: 15px;
-}
-
-#top .row{
-	background: #FCF8F6;
-}
-
-.container .row:first-child {
-	background: #FCF8F6;
-	border-bottom: 1px solid #E1E1E1;
-}
-
-/* the larger left column */
-#top .col-md-8 {
-	margin:0;
 }
 
 /* sidebar */
@@ -164,44 +153,69 @@ svg .line {
   color: #fff;
 }
 
-/** overview charts **/
+/*** overview charts ***/
 
-*.chart_container {
-	margin-bottom: 20px;
+td#overview_charts{
+	padding-top: 20px;
+	padding-right: 0; /* svg charts have a 30px margin - in effect, this ends up applying the 30px right margin */ 
+	background: #FCF8F6;
+	border-bottom: 1px solid #E1E1E1;
 }
 
-.chart {
-  height:55px;
-  width:100%;
+.overview_chart_container {
+	display: inline-block;
+	width: 49.5%;	
 }
 
-.chart_container h3 {
-	color: #A3A3A3;
+.overview_chart_container .chart_container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.overview_chart_container h3 img {
+	display:inline-block;
+	margin-right:3px;
+	margin-top: 2px;
+	vertical-align:top;
+}
+
+.overview_chart_container h3 {
+	color: #000;
 	font-size: 16px;
 	margin-top: 0;
 	float: left;
+	font-weight: normal;
+	margin-bottom:4px;
+	text-shadow: 0 1px 0 #fff;
 }
 
-.chart_container .latest_value{
+.overview_chart_container .latest_value{
   color: #000;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
+ 	font-weight: bold;
   float: right;
-  margin-top:-5px;
+  margin-top:-3px;
+	margin-right: 30px; /* charts have a 30px right margin - lines up value w/far-right of chart */
+	border: 1px solid #E1E1E1;
+	width: 17%;
+	padding: 2px 0;
+	text-align: center;
+	border-radius: 5px;
+	background: #fff;
 }
 
-*.chart_container .chart_info {
-  font-size: 0.8em;
-  height: 1em;
-  color: #000;
+.overview_chart_container .chart_info {
+  font-size: 11px;
+  color: #fff;
   position: relative;
-	font-weight: bold;
+	font-weight: normal;
 	margin-right: 10px;
 	float: right;
+	margin-top:3.5px;
 }
 
-*.chart_container .chart_info span {
-	background: lightgray;
+.overview_chart_container .chart_info span {
+	background: #c3c4c4;
 	border-radius: 3px;
 	margin-left: 10px;
 	padding: 2px 5px;
@@ -211,9 +225,26 @@ svg .line {
   fill-opacity: 0;
 }
 
+/* overview chart overrides */
 
+.overview_chart_container .axis {
+	display: none;
+}
 
-/** processes table **/
+.overview_chart_container:hover .axis {
+	display: block;
+}
+
+.chart.overview_chart {
+  margin-left: -30px; /* chart has a 30px left margin */
+  margin-top: -15px; /* accounts for y-axis value. removing spacing btw h3 and chart so mouseover doesn't have a dead area */  
+}
+
+.overview_chart_container svg .line {
+	stroke: #00A3CC; /* blue */
+}
+
+/*** processes table ***/
 
 .sort-container {
   position:relative;
@@ -282,7 +313,6 @@ svg .line {
 .process_chart,.disk_chart {
 	display: inline-block;
 }
-
 
 /* process chart */
 
