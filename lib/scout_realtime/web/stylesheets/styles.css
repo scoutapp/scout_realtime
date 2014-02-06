@@ -155,7 +155,7 @@ svg .line {
 
 /*** overview charts ***/
 
-td#overview_charts{
+#main_container > tbody > tr > td#overview_charts{
 	padding-top: 20px;
 	padding-right: 0; /* svg charts have a 30px margin - in effect, this ends up applying the 30px right margin */ 
 	background: #FCF8F6;
@@ -195,7 +195,6 @@ td#overview_charts{
  	font-weight: bold;
   float: right;
   margin-top:-3px;
-	margin-right: 30px; /* charts have a 30px right margin - lines up value w/far-right of chart */
 	border: 1px solid #E1E1E1;
 	width: 17%;
 	padding: 2px 0;
