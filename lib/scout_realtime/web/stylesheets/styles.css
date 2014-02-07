@@ -2,7 +2,8 @@
 
 body {
 	margin: 0;
-	font-family: "proxima-nova","Lucida Grande", sans-serif; /* proxima-nova is from typekit */
+	font-family: "Helvetica Neue","Lucida Grande", sans-serif; 
+	font-size: 12px;
 }
 
 h2 {
