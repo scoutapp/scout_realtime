@@ -108,7 +108,7 @@ svg .line {
 
 /* sidebar */
 
-#sidebar_top, #sidebar_bottom.col-md-4 {
+#sidebar_top, #sidebar_bottom {
 	width: 330px;
 }
 
@@ -123,9 +123,17 @@ svg .line {
 	border-bottom: 1px solid #444140;
 }
 
+#sidebar_top div.info#hostname_info {
+	margin-top: 11px;
+}
+
 #hostname {
-	margin-bottom:15px;
+	margin-bottom:25px;
 	color: #fff;
+}
+
+#sidebar_top div.info #os_info {
+	font-size: 15px;
 }
 
 #sidebar_top div span {
@@ -142,6 +150,10 @@ svg .line {
 #sidebar_top div.info:last-child {
 	border-bottom-width:0;
 	padding-bottom: 0;
+}
+
+#sidebar_top div.info .desc {
+	font-weight: normal;
 }
 
 #sidebar_top div.info .value {
