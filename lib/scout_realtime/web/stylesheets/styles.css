@@ -31,7 +31,7 @@ svg .line {
 .axis {
   fill: none;
   stroke-width: 0.5px;
-  stroke: #A8A5A2; /* off-gray - same as line color*/
+  stroke: #333; /* off-gray - same as line color*/
   font-size: 10px;
 }
 
@@ -190,7 +190,7 @@ svg .line {
 /*** overview charts ***/
 
 #main_container > tbody > tr > td#overview_charts{
-	padding-top: 20px;
+	padding-top: 25px;
 	padding-right: 0; /* svg charts have a 30px margin - in effect, this ends up applying the 30px right margin */ 
 	background: #FCF8F6;
 	border-bottom: 1px solid #E1E1E1;
@@ -207,14 +207,12 @@ svg .line {
 }
 
 .overview_chart_container h3 {
-	border-left: 3px solid #43BA33;
-	padding-left: 4px;
-	color: #000;
+	color: #333;
 	font-size: 16px;
 	margin-top: 0;
 	float: left;
 	font-weight: normal;
-	margin-bottom:4px;
+	margin-bottom:6px;
 	text-shadow: 0 1px 0 #fff;
 	line-height: 100%;
 }
@@ -225,12 +223,12 @@ svg .line {
  	font-weight: bold;
   float: right;
   margin-top:-4px;
-/*	border: 1px solid #E1E1E1;*/
+	border: 1px solid #E1E1E1;
 	width: 17%;
 	padding: 2px 0;
-	text-align: right;
+	text-align: center;
 	border-radius: 5px;
-/*	background: #fff;*/
+	background: #fff;
 }
 
 .overview_chart_container .chart_info {
@@ -256,8 +254,12 @@ svg .line {
 
 /* overview chart overrides */
 
-.overview_chart_container .axis {
+.overview_chart_container .x.axis {
 	display: none;
+}
+
+.overview_chart_container .y.axis {
+	display: block;
 }
 
 .overview_chart_container:hover .axis {
@@ -267,6 +269,7 @@ svg .line {
 .chart.overview_chart {
   margin-left: -30px; /* chart has a 30px left margin */
   margin-top: -15px; /* accounts for y-axis value. removing spacing btw h3 and chart so mouseover doesn't have a dead area */  
+	height: 101px;
 }
 
 .overview_chart_container svg .line {
@@ -299,9 +302,9 @@ td#processes_container h2 {
   left: 3px;
 }
 
-#processes {
-	width: 100%;
+table#processes {
 	border-spacing: 0;
+	margin: 0 30px 30px 30px;
 }
 
 #processes svg .line {
@@ -338,10 +341,12 @@ td#processes_container h2 {
 	width: 20%;
 	vertical-align: top;
 	padding-left: 30px;
+	border-left: 1px solid #eaeaea;
 }
 
 #processes td:last-child {
 	padding-right: 30px;
+	border-right: 1px solid #eaeaea;
 }
 
 #processes tr:last-child td:first-child{
@@ -350,7 +355,7 @@ td#processes_container h2 {
 
 #processes td {
 	color: #666;
-	padding: 14px 10px;
+	padding: 14px 4px;
 	border-top: 1px solid #fff;
 	border-bottom: 1px solid #eaeaea;
 	font-size: 13px;
