@@ -76,7 +76,7 @@ var Processes={
       $.each(['count', 'cpu', 'memory'], function(index, metric) {
         var graph = Processes.index[cmd][metric];
         if(graph && data) {
-          graph.data.push({time: new Date().getTime(), value: [data[metric]]});
+          graph.data.push({time: new Date().getTime(), value: [simulate(data[metric])]});
           graph.data.shift();
         }
       });
@@ -123,7 +123,7 @@ var Processes={
       data = [];
 
       $.each(bufferedData, function(data_index, value) {
-        data.push({time: startTime + data_index * 1000, value: [value]})
+        data.push({time: startTime + data_index * 1000, value: [simulate(value)]})
       });
       chart = new lineChart({ element: $(this).get(0), data: data, metadata: meta.processes[metric], type: 'process' });
       chart.draw();
@@ -183,6 +183,7 @@ function init() {
 
         $.each(chartMetrics, function(metric_index, metric) {
           var metricValue = dataSource[metric][data_index] || 0;
+					metricValue = simulate(metricValue);
           valueBreakdown[metric] = metricValue;
           valueSum += metricValue;
         });
@@ -235,6 +236,7 @@ function updateGraphData() {
       var valueSum = 0;
       $.each(chartMetrics, function(metric_index, metric) {
         value = dataSource[metric] || 0;
+				value=simulate(value);
         valueBreakdown[metric] = value;
         valueSum += value;
       });
@@ -272,14 +274,13 @@ function formatTime(timestamp) {
 
 
 function refresh() {
-  $.getJSON("/stats.json", function (d) {
-    metrics = d;
-		console.log(metrics)
+  // $.getJSON("/stats.json", function (d) {
+    // metrics = d;
     updateGraphData();
-  }).fail(function() {
-    toggleData();
-    $('#fail_message').show();
-  });
+  // }).fail(function() {
+  //     toggleData();
+  //     $('#fail_message').show();
+  //   });
 }
 
 /*
