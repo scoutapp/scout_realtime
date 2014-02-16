@@ -122,6 +122,7 @@ svg .line {
 	line-height: 130%;
 	padding: 0;
 	border-bottom: 1px solid #444140;
+	vertical-align: top;
 }
 
 #sidebar_top div.info#hostname_info {
@@ -234,18 +235,22 @@ svg .line {
 .overview_chart_container .chart_info {
   font-size: 11px;
   color: #fff;
-  position: relative;
 	font-weight: normal;
-	margin-right: 10px;
-	float: right;
-	margin-top:1.5px;
+	height: 12px;
+	margin: 0px 0 3px 0;
+	clear: left;
 }
 
 .overview_chart_container .chart_info span {
-	background: #c3c4c4;
-	border-radius: 3px;
-	margin-left: 10px;
-	padding: 2px 5px;
+	color: #999;
+	text-shadow: 1px 1px 0 white;
+	padding: 0 5px 0 0;
+}
+
+/* the value */
+.overview_chart_container .chart_info span span {
+	font-weight: bold;
+	padding-left: 3px;
 }
 
 .chart_section {
