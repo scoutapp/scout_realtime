@@ -81,10 +81,10 @@ svg .line {
 
 #toggle .button {
 	padding: 0 20px;
-	height: 44px;
+	height: 42px;
 	display: inline-block;
 	margin: 0;
-  transition: 0.2s background-color;
+  transition: 0.1s background-color;
 }
 
 #toggle .button:hover {
@@ -322,12 +322,16 @@ table#processes {
 	padding: 10px 10px;
 	border-bottom: 1px solid #eaeaea;
 	background: #fff;
- 	cursor: pointer;
   text-align: left;
 	transition: 0.2s background-color;
 }
 
-#processes thead th:hover {
+/* name isn't sortable */
+#processes thead th:not(:first-child) {
+	cursor: pointer;
+}
+
+#processes thead th:not(:first-child):hover {
   background: #FCF8F6;
 }
 
