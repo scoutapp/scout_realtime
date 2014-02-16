@@ -55,9 +55,14 @@ svg .line {
 	margin: 0;
 	background: #fff;
 	border-bottom: 1px solid #E1E1E1;
+	padding: 0;
+}
+
+#main_container #header > div {
+	position: relative;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	position: relative;
+	padding-left: 30px;
 }
 
 /* time + pause/play */
@@ -285,11 +290,10 @@ svg .line {
 
 /* table cell */
 #main_container > tbody > tr > td#processes_container {
-	padding: 0;
+	padding: 0 30px 30px 30px;
 }
 
 td#processes_container h2 {
-	margin-left: 30px;
 	margin-bottom: 0;
 }
 
@@ -309,7 +313,7 @@ td#processes_container h2 {
 
 table#processes {
 	border-spacing: 0;
-	margin: 0 30px 30px 30px;
+	width: 100%;
 }
 
 #processes svg .line {
