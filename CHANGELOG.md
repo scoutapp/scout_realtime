@@ -1,3 +1,7 @@
+## 0.5.4
+
+* Misc UI updates
+
 ## 0.5.3
 
 * Update executable output - instructions for accessing from your browser.
