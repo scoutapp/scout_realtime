@@ -1,5 +1,3 @@
-console.log('This would be the main JS file.');
-
 // fake a simulated value
 function simulate(value) {
 	if (value < 1) {
@@ -11,3 +9,7 @@ function simulate(value) {
 	value=Math.floor(Math.random()*(max-min+1)+min);
 	return value;
 }
+
+$(window).load(function(){
+	$('#top_terminal').fadeOut(3000)
+})

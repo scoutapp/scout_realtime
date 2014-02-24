@@ -1,0 +1,17 @@
+/* overrides on the application styles.css file. seperated out so updated styles are easier to apply. */
+
+#main_container {
+	min-width: 0;
+	width: 904px;
+	margin-left: 3px;
+	border-left: 1px solid #E1E1E1;
+	border-right: 1px solid #E1E1E1;
+}
+
+#sidebar_top, #sidebar_bottom {
+	width: 180px;
+}
+
+#main_container > tbody > tr > td#processes_container {
+	padding-bottom: 0;
+}

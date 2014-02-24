@@ -101,6 +101,8 @@ var Processes={
     processIteration++;
   },
   add:function(process){
+	// hardcoded - only showing 3 processes for demo purposes
+	if (!(process.cmd == 'nginx' || process.cmd == 'mysqld' || process.cmd == 'memcached')) { return true}
     Processes.index[cmd]={};
     html=Processes.tableRowTemplate(process);
     $row = $(html).appendTo(Processes.tableBody);

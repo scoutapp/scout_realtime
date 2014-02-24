@@ -1,0 +1,404 @@
+/* this file is copied from styles.css in scout_realtime. overrides should be placed in 
+   simulation.styles.overrides */
+
+/*** overall styles ***/
+
+body {
+	margin: 0;
+	font-family: "Helvetica Neue","Lucida Grande", sans-serif; 
+	font-size: 12px;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+/* makes 'top' smaller in 'top processes' */
+h2 span {
+	font-weight: normal;
+}
+
+/* default chart styling */
+.chart {
+  height:85px;
+  width:100%;
+}
+
+/* the color used for lines in d3 charts */
+svg .line {
+  fill: none;
+  stroke: #A8A5A2; /* off-gray */
+  stroke-width: 2.5px;
+}
+
+.axis {
+  fill: none;
+  stroke-width: 0.5px;
+  stroke: #333; /* off-gray - same as line color*/
+  font-size: 10px;
+}
+
+/*** main layout container - everything is inside of this ***/
+
+#main_container {
+	border-top: 7px solid #00A3CC; /* blue */
+	min-width: 960px;
+	width: 100%;
+	margin:0;
+	border-collapse: collapse;
+}
+
+#main_container > tbody > tr > td:first-child {
+	padding: 0 30px;
+}
+
+/*** header ***/
+
+#main_container #header {
+	margin: 0;
+	background: #fff;
+	border-bottom: 1px solid #E1E1E1;
+	padding: 0;
+}
+
+#main_container #header > div {
+	position: relative;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+	height: 22px;
+}
+
+/* time + pause/play */
+#toggle {
+	float: right;
+	font-size: 13px;
+	color: #000;
+	font-weight: bold;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+#toggle #report-time {
+  position: absolute;
+  right: 125px;
+  top: 14px;
+  width: 80px;
+  text-align: right;
+}
+
+#toggle .button {
+	padding: 0 20px;
+	height: 42px;
+	display: inline-block;
+	margin: 0;
+  transition: 0.1s background-color;
+}
+
+#toggle .button:hover {
+	cursor: pointer;
+	background-color: #FCF8F6;
+}
+
+#toggle #off {
+	border: 1px solid #E1E1E1;
+	border-width: 0 1px;
+	margin-left: 10px;
+}
+
+#toggle img {
+	padding-top: 15px;
+	vertical-align: middle;
+}
+
+#toggle .disabled img {
+	opacity: 0.3;
+}
+
+/* sidebar */
+
+#sidebar_top, #sidebar_bottom {
+	width: 330px;
+}
+
+/* top sidebar */
+
+#sidebar_top {
+	background: #282524;
+	font-size: 14px;
+	color: #7B7B7B;
+	line-height: 130%;
+	padding: 0;
+	border-bottom: 1px solid #444140;
+	vertical-align: top;
+}
+
+#sidebar_top div.info#hostname_info {
+	margin-top: 11px;
+}
+
+#hostname {
+	margin-bottom:25px;
+	color: #fff;
+}
+
+#sidebar_top div.info #os_info {
+	font-size: 15px;
+}
+
+#sidebar_top div span {
+	color: #fff;
+}
+
+#sidebar_top div.info {
+	margin: 15px 0;
+	border-bottom: 1px solid #343434;
+	font-weight: bold;
+	padding: 0 15px 15px 15px;
+}
+
+#sidebar_top div.info:last-child {
+	border-bottom-width:0;
+	padding-bottom: 0;
+}
+
+#sidebar_top div.info .desc {
+	font-weight: normal;
+}
+
+#sidebar_top div.info .value {
+	font-size: 18px;
+}
+
+#sidebar_bottom {
+  background: #35312F;
+  color: #fff;
+  vertical-align: top;
+  padding-top: 20px;
+  padding-left:19px;
+  width: 310px;
+	font-size: 13px;
+  color: #7B7B7B
+}
+
+#sidebar_bottom div a {
+	color: #7B7B7B; /* same as text */
+	text-decoration: none;
+}
+
+#sidebar_bottom div a:hover {
+	color: #fff;
+}
+
+#sidebar_bottom a.icon {
+	display: inline-block;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+/*** overview charts ***/
+
+#main_container > tbody > tr > td#overview_charts{
+	padding-top: 25px;
+	padding-right: 0; /* svg charts have a 30px margin - in effect, this ends up applying the 30px right margin */ 
+	background: #FCF8F6;
+	border-bottom: 1px solid #E1E1E1;
+}
+
+.overview_chart_container {
+	display: inline-block;
+	width: 49.5%;	
+}
+
+.overview_chart_container .chart_container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.overview_chart_container h3 {
+	color: #333;
+	font-size: 16px;
+	margin-top: 0;
+	float: left;
+	font-weight: normal;
+	margin-bottom:6px;
+	text-shadow: 0 1px 0 #fff;
+	line-height: 100%;
+}
+
+.overview_chart_container .latest_value{
+  color: #000;
+  font-size: 16px;
+ 	font-weight: bold;
+  float: right;
+  margin-top:-4px;
+	border: 1px solid #E1E1E1;
+	width: 17%;
+	padding: 2px 0;
+	text-align: center;
+	border-radius: 5px;
+	background: #fff;
+}
+
+.overview_chart_container .chart_info {
+  font-size: 11px;
+  color: #fff;
+	font-weight: normal;
+	height: 12px;
+	margin: 0px 0 3px 0;
+	clear: left;
+}
+
+.overview_chart_container .chart_info span {
+	color: #999;
+	text-shadow: 1px 1px 0 white;
+	padding: 0 5px 0 0;
+}
+
+/* the value */
+.overview_chart_container .chart_info span span {
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.chart_section {
+  fill-opacity: 0;
+}
+
+/* overview chart overrides */
+
+.overview_chart_container .x.axis {
+	display: none;
+}
+
+.overview_chart_container .y.axis {
+	display: block;
+}
+
+.overview_chart_container:hover .axis {
+	display: block;
+}
+
+.chart.overview_chart {
+  margin-left: -30px; /* chart has a 30px left margin */
+  margin-top: -15px; /* accounts for y-axis value. removing spacing btw h3 and chart so mouseover doesn't have a dead area */  
+	height: 101px;
+}
+
+.overview_chart_container svg .line {
+	stroke: #00A3CC; /* blue */
+}
+
+/*** processes table ***/
+
+/* table cell */
+#main_container > tbody > tr > td#processes_container {
+	padding: 20px 30px 30px 30px;
+}
+
+td#processes_container h2 {
+	margin-bottom: 0;
+}
+
+.sort-container {
+  position:relative;
+}
+.sort-container .sort-up, .sort-container .sort-down {
+  font-size:8px;
+  position:absolute;
+  display:none;
+}
+
+.sort-container .sort-down {
+  top:4px;
+  left: 3px;
+}
+
+table#processes {
+	border-spacing: 0;
+	width: 100%;
+}
+
+#processes svg .line {
+	stroke: #00A3CC; /* blue */
+}
+
+#processes thead th {
+	font-size: 13px;
+	color: #9DB1BC;
+	padding: 10px 10px;
+	border-bottom: 1px solid #eaeaea;
+	background: #fff;
+  text-align: left;
+	transition: 0.2s background-color;
+}
+
+/* name isn't sortable */
+#processes thead th:not(:first-child) {
+	cursor: pointer;
+}
+
+#processes thead th:not(:first-child):hover {
+  background: #FCF8F6;
+}
+
+#processes tr:nth-child(odd) td {
+	background: #FCF8F6;
+}
+
+
+#processes td:not(:first-child) {
+		width: 26.6666%; /* 3 cols of data. 1st col in table is 20% */
+}
+
+#processes td:first-child{
+	font-size: 14px;
+	font-weight: bold;
+	width: 20%;
+	vertical-align: top;
+	padding-left: 30px;
+	border-left: 1px solid #eaeaea;
+}
+
+#processes td:last-child {
+	padding-right: 30px;
+	border-right: 1px solid #eaeaea;
+}
+
+#processes tr:last-child td:first-child{
+	border-bottom: 1px solid #eaeaea;
+}
+
+#processes td {
+	color: #666;
+	padding: 14px 4px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #eaeaea;
+	font-size: 13px;
+	background: #fff;
+}
+
+#processes td span.chart_container {
+	width: 50%;
+}
+
+#processes tr.compact td {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.process_chart,.disk_chart {
+	display: inline-block;
+}
+
+/* process chart */
+
+#processes .chart {
+  height: 15px;
+	width: 50%;
+}
+
+#processes .latest_value, #processes .chart_info {
+	padding-left: 10px;
+}
