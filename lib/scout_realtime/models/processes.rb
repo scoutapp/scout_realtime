@@ -7,7 +7,7 @@ class Scout::Realtime::Processes < Scout::Realtime::Metric
            }
 
   def initialize
-    @collector = ServerMetrics::Processes.new()
+    @collector = ServerMetrics::Processes.new(:pid_cache_ttl=>10)
     super
   end
 end

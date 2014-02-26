@@ -1,5 +1,5 @@
 module Scout
   module Realtime
-    VERSION = "0.5.4"
+    VERSION = "0.6.alpha"
   end
 end
