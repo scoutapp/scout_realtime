@@ -88,7 +88,7 @@ section .gray {
 	padding: 0 15px;
 	margin-bottom: 30px;
 	display: inline-block;
-	
+	border-radius: 2px;
 }
 
 .terminal.wide {

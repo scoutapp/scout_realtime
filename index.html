@@ -237,15 +237,17 @@
   <div id="questions_inner">
   <h1>Questions</h1>
   
-  <h3>Is Scout Realtime Secure?</h3>
+  <h3>Is <code>scout_realtime</code> free?</h3>
   
-    Yes - it's built by <a href="https://scoutapp.com">Scout Monitoring</a>, a SaaS monitoring solution trusted by tens of thousands of developers.
-    The daemon fetches key metrics from you server, stores them in memory, and renders them in your browser - there is no inbound communication and nothing is written to disk.
-    The code is 100% open-source and <a href="https://github.com/scoutapp/scout_realtime">available on Github</a>.
+  Yes - and open-source too! View the <a href="https://github.com/scoutapp/scout_realtime">source on Github</a>.
+    <code>scout_realtime</code> is maintained by the team at <a href="https://scoutapp.com">Scout</a>, a SaaS server monitoring solution trusted by tens of thousands of developers.
   
+  <h3>Is <code>scout_realtime</code> secure?</h3>
   
-  <h3>Does my server need to have a public IP or domain name?</h3> Yes, you need a public IP or domain
-  name to view <code>scout_realtime</code> in your browser.
+The daemon fetches key metrics from you server, stores them in memory, and renders them in your browser - there is no inbound communication and nothing is written to disk. We run it on our own production servers. 
+  
+  <h3>Does my server need to have a public IP or domain name?</h3> 
+  Yes, you need a public IP or domain name to view <code>scout_realtime</code> in your browser.
 
   <h3>Can multiple people view the realtime stats?</h3>
   Yes. Open a port in your firewall instead of using the SSH tunnel:
@@ -260,9 +262,10 @@
   <h3>Can I specify where the the log and/or PID is written?</h3>
   Yes. <div class="terminal">scout_realtime help</div> for options.
 
-  <h3>How much CPU will this consume if I leave it running?</h3>
-  The daemon will take ~1% of CPU while it's running. If you turn off the metric collection (by
-  clicking the pause button on the web page), it will take 0%, and you'll still be able to visit the web page and
+  <h3>How much CPU and memory will this consume if I leave it running?</h3>
+  We've clocked the CPU usage of the <code>scout_realtime</code> daemon at 1% on an Intel Xeon 2.40GHz CPU. Memory usage is around 22 MB.
+  If you turn off the metric collection (by
+  clicking the pause button on the web page), CPU usage will effectively drop to 0%, and you'll still be able to visit the web page and
   re-enable metrics at any time.
 
   <h3>Installing the gem didn't work.</h3>
