@@ -15,7 +15,7 @@ class Scout::Realtime::Disk < Scout::Realtime::Metric
            }
 
   def initialize
-    @collector = ServerMetrics::Disk.new()
+    @collector = ServerMetrics::Disk.new(:ttl => Scout::Realtime::Main::TTL)
     super
   end
 end

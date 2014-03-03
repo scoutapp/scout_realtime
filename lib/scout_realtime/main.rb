@@ -1,7 +1,8 @@
 module Scout
   module Realtime
     class Main
-      INTERVAL=1
+      INTERVAL=3 # time in seconds between runs of the thread to fetch stats
+      TTL=60 # time in seconds for collectors to cache slow system commands
       LOG_NAME="realtime.log"
 
       attr_accessor :running, :runner, :stats_thread
