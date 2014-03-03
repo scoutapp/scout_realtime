@@ -1,3 +1,9 @@
+## 0.5.5
+
+* Using the `server_metrics` Collector `TTL` option for better performance on system calls.
+* Set runner interval to 3 seconds
+* Using CPU `:skip_load => true` option as load average info is not displayed. Collecting this involves a system call.
+
 ## 0.5.4
 
 * Misc UI updates

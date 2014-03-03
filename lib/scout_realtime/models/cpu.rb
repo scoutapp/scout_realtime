@@ -8,14 +8,13 @@ class Scout::Realtime::Cpu < Scout::Realtime::Metric
              :steal                 => { 'units' => '%', 'precision' => 1 },
              :interrupts            => { 'units' => '/sec', 'precision' => 1 },
              :procs_running         => { 'units' => '', 'precision' => 0 },
-             :procs_blocked         => { 'units' => '', 'precision' => 0 },
-             :last_minute           => { 'units' => '', 'precision' => 2 },
-             :last_five_minutes     => { 'units' => '', 'precision' => 2 },
-             :last_fifteen_minutes  => { 'units' => '', 'precision' => 2 } 
+             :procs_blocked         => { 'units' => '', 'precision' => 0 }
           }
 
   def initialize
-    @collector = ServerMetrics::Cpu.new()
+    # load average metrics aren't displayed in scout_realtime and the call to grab this is a system call,
+    # which is slow. avoids this.
+    @collector = ServerMetrics::Cpu.new(:skip_load => true)
     super
   end
 end
