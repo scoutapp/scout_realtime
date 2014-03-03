@@ -12,4 +12,5 @@ function simulate(value) {
 
 $(window).load(function(){
 	$('#top_terminal').fadeOut(3000)
+	$('#main_container').css('visibility','visible').hide().fadeIn(3000)
 })
