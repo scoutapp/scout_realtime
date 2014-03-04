@@ -2,7 +2,7 @@
 
 Stream realtime server and process metrics to your browser!
 
-<img src="https://dl.dropboxusercontent.com/u/468982/blog/realtime_screen.png">
+<a href="http://scoutapp.github.io/scout_realtime/"><img src="https://dl.dropboxusercontent.com/u/468982/blog/realtime_screen.png"></a>
 
 
 
@@ -33,5 +33,8 @@ Scout realtime is a better `top` command: it gives you disk, memory, network, CP
 * **5555 is a strange number. Can I run it on a different port?** Yes. `scout_realtime help` for options.
 * **I want to log written someplace other than my home directory.** You can do that. See `scout_realtime help` for options.
 * **How much resources will this take if I leave it running?** About the same CPU resources as htop. A bit more memory because it's written in Ruby.
+
+
+Learn more at [scoutapp.github.io/scout_realtime](http://scoutapp.github.io/scout_realtime/).
 
 
