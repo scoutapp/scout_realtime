@@ -11,7 +11,7 @@ Stream realtime server and process metrics to your browser!
 * On the server you want to monitor:
   * install the gem: `gem install scout_realtime`
   * start the daemon: `scout_realtime start`
-* on your local computer:
+* On your local computer:
   * create an SSH tunnel to your server: `ssh -NL 5555:localhost:5555 user@ip_or_hostname` (where user@ip_or_hostname is the same as you usually use to SSH to your server)
   * Point your browser to http://localhost:5555
 
