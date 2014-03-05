@@ -1,3 +1,7 @@
+## 1.0.0
+
+* Release!
+
 ## 0.5.5
 
 * Using the `server_metrics` Collector `TTL` option for better performance on system calls.
