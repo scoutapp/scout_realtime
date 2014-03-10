@@ -26,5 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
 
   # Runtime dependencies
-  spec.add_runtime_dependency "server_metrics", "~> 1.2.0"
+  spec.add_runtime_dependency "server_metrics", "~> 1.2.1"
 end

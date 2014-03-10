@@ -1,3 +1,7 @@
+## 1.0.1
+
+* Updating server_metrics dependency to 1.2.1 for OSX :avail memory fix
+
 ## 1.0.0
 
 * Release!
