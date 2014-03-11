@@ -258,7 +258,9 @@ The daemon fetches key metrics from you server, stores them in memory, and rende
 
   <h3>What operating systems are supported?</h3>
   
-  <code>scout_realtime</code> relies heavily on the <a href="http://en.wikipedia.org/wiki/Procfs">proc file system</a> to fetch metrics. procfs is supported on most Linux-based distributions with the exception of OSX and Debian. 
+  <code>scout_realtime</code> relies heavily on the <a href="http://en.wikipedia.org/wiki/Procfs">proc file system</a> to fetch
+  metrics. procfs is available on Linux-based distributions. OSX and
+  FreeBSD do not have full support for procfs and are not supported.
   
   <h3>What version of Ruby is required?</h3>
   
