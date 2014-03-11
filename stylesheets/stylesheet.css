@@ -1,5 +1,5 @@
 body {
-	margin: 30px 0 0 0;
+	margin: 0 0 0 0;
 }
 
 h1, h2, h3 {
@@ -10,6 +10,24 @@ h1, h2, h3 {
 
 h1 {
 	border-radius: 3px;
+}
+
+#hiring {
+	background: #00A3CC;
+	color: #fff;
+	margin-bottom: 30px;
+	padding: 3px;
+	text-align: center;
+}
+
+#hiring a {
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#hiring a:hover {
+	text-decoration: underline;
 }
 
 #scout_realtime_logo {
