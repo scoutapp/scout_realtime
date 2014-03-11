@@ -255,6 +255,14 @@
   <h3>Is <code>scout_realtime</code> secure?</h3>
   
 The daemon fetches key metrics from you server, stores them in memory, and renders them in your browser - there is no inbound communication and nothing is written to disk. We run it on our own production servers. 
+
+  <h3>What operating systems are supported?</h3>
+  
+  <code>scout_realtime</code> relies heavily on the <a href="http://en.wikipedia.org/wiki/Procfs">proc file system</a> to fetch metrics. procfs is supported on most Linux-based distributions with the exception of OSX and Debian. 
+  
+  <h3>What version of Ruby is required?</h3>
+  
+  You need Ruby 1.9.3+ on your server to run <code>scout_realtime</code>.
   
   <h3>Does my server need to have a public IP or domain name?</h3> 
   Yes, you need a public IP or domain name to view <code>scout_realtime</code> in your browser.
