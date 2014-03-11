@@ -34,12 +34,14 @@ class Scout::Realtime::WebApp < Sinatra::Base
     end
 
     def basic_auth_enabled?
-        return Scout::Realtime::Main.instance.enable_basic_auth
+        return Scout::Realtime::Main.instance.auth_object["basic_auth_enabled"]
     end
 
     def authorized?
         @auth ||= Rack::Auth::Basic::Request.new(request.env)
-        @auth.provided? and @auth.basic? and @auth.credentials and @auth.credentials == ['admin', 'admin']
+        username = Scout::Realtime::Main.instance.auth_object["username"]
+        password = Scout::Realtime::Main.instance.auth_object["password"]
+        @auth.provided? and @auth.basic? and @auth.credentials and @auth.credentials == [username, password]
     end
   end
 
