@@ -20,8 +20,9 @@ end
 # by default, scout_realtime puts its pid and logfile in ~/.scout/
 home_dir =  File.join( (File.expand_path("~") rescue "/"), ".scout" )
 FileUtils.mkdir_p(home_dir) # ensure home directory exists
-pid_path = File.join(home_dir, "scout_realtime.pid")
-log_path = File.join(home_dir, "scout_realtime.log")
+pid_path  = File.join(home_dir, "scout_realtime.pid")
+log_path  = File.join(home_dir, "scout_realtime.log")
+auth_path = File.join(home_dir, "scout_basic_auth.conf")
 
 # parse the command
 cmd = ARGV.first
@@ -59,6 +60,8 @@ Advanced options:
   opt :foreground, "run in the foreground, i.e., don't daemonize the process. Useful for debugging.", :default => false, :short => "-f"
   opt :log_path, "full path for a log file", :default=>log_path
   opt :pid_path, "full path for a PID file", :default=>pid_path
+  opt :enable_basic_auth, "enable HTTP basic auth", :default=>false
+  opt :auth_path, "full path for a basic HTTP credentials file", :default=>auth_path
   #opt :quiet, "don't print anything to console on start or stop", :default=>false
 end
 
@@ -81,7 +84,7 @@ EOS
 # TODO: should be able to pass :daemonize => !opts[:foreground] to Dante::Runner instead
 if opts[:foreground]
   puts " ** Initializing. cntl-c to stop. Logging to STDOUT **"
-  Scout::Realtime::Main.instance(:port=>opts[:port]).go_sinatra
+  Scout::Realtime::Main.instance(:port=>opts[:port], :enable_basic_auth=>opts[:enable_basic_auth]).go_sinatra
   puts startup_message
 else
   if command == :start
@@ -91,7 +94,7 @@ else
     end
 
     Dante::Runner.new('scout_realtime').execute(:daemonize => !opts[:foreground], :pid_path => pid_path, :log_path => log_path, :port=>opts[:port]) do |options|
-      Scout::Realtime::Main.instance(:port=>options[:port]).go_sinatra
+      Scout::Realtime::Main.instance(:port=>options[:port], :enable_basic_auth=>options[:enable_basic_auth]).go_sinatra
     end
     puts startup_message
     puts  '* "scout_realtime stop" to stop the daemon'
@@ -119,11 +122,3 @@ else
     puts "to get help: scout_realtime --help "
   end
 end
-
-
-
-
-
-
-
-
