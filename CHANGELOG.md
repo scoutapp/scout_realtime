@@ -1,3 +1,8 @@
+## 1.0.2 (pending)
+
+* Updated copyright
+* Removed typekit - included on mistake and fonts weren't used.
+
 ## 1.0.1
 
 * Updating server_metrics dependency to 1.2.1 for OSX :avail memory fix
