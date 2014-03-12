@@ -30,8 +30,8 @@ Scout realtime is a better `top` command: it gives you disk, memory, network, CP
 * **Can multiple people view the realtime stats?** Yes. You'll probably want to open a port in your firewall instead of relying in the SSH tunnel for access: `sudo iptables -A INPUT -p tcp --dport 5555 -j ACCEPT`
 * **The SSH tunnel is a pain. Is there a way to set up persistent access?** Yes -- open a port in your firewall using the iptables command above.
   * **Is that safe?** It's as safe or safer than any any other service you have listening for HTTP traffic. The realtime web server only serves two endpoints, and there's nothing available at either of those endpoints that can be used in an attack.
-* **5555 is a strange number. Can I run it on a different port?** Yes. `scout_realtime help` for options.
-* **I want to log written someplace other than my home directory.** You can do that. See `scout_realtime help` for options.
+* **5555 is a strange number. Can I run it on a different port?** Yes. `scout_realtime --help` for options.
+* **I want to log written someplace other than my home directory.** You can do that. See `scout_realtime --help` for options.
 * **How much resources will this take if I leave it running?** About the same CPU resources as htop. A bit more memory because it's written in Ruby.
 
 
