@@ -1,4 +1,4 @@
-Copyright (c) 2013 Andre Lewis
+Copyright (c) 2013-2014 Andre Lewis
 
 MIT License
 
