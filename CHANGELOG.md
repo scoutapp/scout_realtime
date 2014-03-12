@@ -1,7 +1,8 @@
-## 1.0.2 (pending)
+## 1.0.2
 
 * Updated copyright
 * Removed typekit - included on mistake and fonts weren't used.
+* Updating server_metrics dependency to 1.2.2
 
 ## 1.0.1
 
