@@ -1,3 +1,7 @@
+## 1.0.3.pre
+
+* switch to relatives paths in templates, so it will work in an nginx subfolder.
+
 ## 1.0.2
 
 * Updated copyright
