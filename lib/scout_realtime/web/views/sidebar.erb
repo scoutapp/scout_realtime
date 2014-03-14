@@ -1,10 +1,10 @@
 <div class="info" id="hostname_info">
   <div class="value" id="hostname"><%= ServerMetrics::SystemInfo.hostname %></div>
   <div class="value" id="os_info">
-    <img src="/images/linux.png" alt="Linux" height=40 valign=middle>&nbsp;&nbsp;&nbsp;
+    <img src="images/linux.png" alt="Linux" height=40 valign=middle>&nbsp;&nbsp;&nbsp;
     <%= a=ServerMetrics::SystemInfo.architecture =~ /64/ ? '64-bit' : a %> &nbsp;&nbsp;&nbsp;
     <%= ServerMetrics::SystemInfo.os_version %> &nbsp;&nbsp;&nbsp;
-  </div>      
+  </div>
 </div>
 <div class="info">
   <div class="value"><span><%= count=ServerMetrics::SystemInfo.num_processors %></span> <%= count > 1 ? 'processors' : 'processor'%></div>
