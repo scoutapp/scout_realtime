@@ -1,6 +1,7 @@
-## 1.0.3.pre
+## 1.0.3
 
 * switch to relatives paths in templates, so it will work in an nginx subfolder.
+* Updating server_metrics dependency to 1.2.3
 
 ## 1.0.2
 
