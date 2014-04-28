@@ -7,9 +7,10 @@ module Scout
 
       attr_accessor :running, :runner, :stats_thread
 
-      # opts: {:port=>xxx}
+      # opts: {:port=>xxx, bind=>'0.0.0.0'}
       def initialize(opts={})
         @port=opts[:port]
+        @bind_address=opts[:bind] || '0.0.0.0'
         Scout::Realtime::logger=Logger.new(STDOUT)
         @stats_thread = Thread.new {}
         @runner = Scout::Realtime::Runner.new
@@ -50,12 +51,12 @@ module Scout
         #end
 
         start_thread
-        Scout::Realtime::WebApp.run!(:port=>@port)
+        Scout::Realtime::WebApp.run!(:port=>@port,:bind=>@bind_address)
       end
 
       def go_webrick
         logger.info("starting web server ")
-        server = WEBrick::HTTPServer.new(:Port => 5555, :AccessLog => [])
+        server = WEBrick::HTTPServer.new(:Port => @port, :AccessLog => [], :BindAddress => @bind_address)
         server.mount '/', Scout::Realtime::WebServer
         trap 'INT' do
           server.shutdown
