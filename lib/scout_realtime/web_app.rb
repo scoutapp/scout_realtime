@@ -11,7 +11,7 @@ class Scout::Realtime::WebApp < Sinatra::Base
   set :static, true # set up static file routing
   set :public_dir, File.expand_path('../web', __FILE__) # set up the static dir (with images/js/css inside)
   set :views, File.expand_path('../web/views', __FILE__) # set up the views dir
-  set :bind, "0.0.0.0" # necessary for running on vagrant
+  set :bind, self.bind || "0.0.0.0" # 0.0.0.0 is the default and is required for Vagrant
   #set :traps, false # setting this to false means 1) sinatra won't capture any interrupts or term signals; 2) we need to call Scout::Realtime::WebApp.quit! ourselves in our own signal trap
 
   #helpers Sinatra::ContentFor
