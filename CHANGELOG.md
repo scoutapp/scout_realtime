@@ -1,3 +1,8 @@
+## 1.0.4
+
+* Added hostname to title
+* Single play/pause button
+
 ## 1.0.3
 
 * switch to relatives paths in templates, so it will work in an nginx subfolder.

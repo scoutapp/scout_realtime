@@ -78,7 +78,7 @@ svg .line {
 
 #toggle #report-time {
   position: absolute;
-  right: 125px;
+  right: 75px;
   top: 14px;
   width: 80px;
   text-align: right;
@@ -90,6 +90,9 @@ svg .line {
 	display: inline-block;
 	margin: 0;
   transition: 0.1s background-color;
+	border: 1px solid #E1E1E1;
+	border-width: 0 1px;
+	margin-left: 10px;
 }
 
 #toggle .button:hover {
@@ -97,19 +100,10 @@ svg .line {
 	background-color: #FCF8F6;
 }
 
-#toggle #off {
-	border: 1px solid #E1E1E1;
-	border-width: 0 1px;
-	margin-left: 10px;
-}
-
+/* play and pause */
 #toggle img {
 	padding-top: 15px;
 	vertical-align: middle;
-}
-
-#toggle .disabled img {
-	opacity: 0.3;
 }
 
 /* sidebar */
