@@ -26,7 +26,7 @@ Scout realtime is a better `top` command: it gives you disk, memory, network, CP
 
 * **Something isn't working. Where's the log?** By default, the log is written to `~/scout_realtime.log`
 * **Does my server need to have a public IP or domain name?** Yes, you need a public IP or domain name to view Scout Realtime in your browser.
-* **Installing the gem didn't work.** You need Ruby 1.8.7+ on your server to run Scout Realtime. Try `which ruby` (to confirm you have Ruby), `ruby -v` (to show Ruby's version), and `which gem` to confirm you have Ruby gems (Ruby's package manager) available.
+* **Installing the gem didn't work.** You need Ruby 1.9.3+ on your server to run Scout Realtime. Try `which ruby` (to confirm you have Ruby), `ruby -v` (to show Ruby's version), and `which gem` to confirm you have Ruby gems (Ruby's package manager) available.
 * **Can multiple people view the realtime stats?** Yes. You'll probably want to open a port in your firewall instead of relying on the SSH tunnel for access: `sudo iptables -A INPUT -p tcp --dport 5555 -j ACCEPT`
 * **The SSH tunnel is a pain. Is there a way to set up persistent access?** Yes -- open a port in your firewall using the iptables command above.
   * **Is that safe?** It's as safe or safer than any any other service you have listening for HTTP traffic. The realtime web server only serves two endpoints, and there's nothing available at either of those endpoints that can be used in an attack.
