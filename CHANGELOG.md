@@ -2,6 +2,7 @@
 
 * Added hostname to title
 * Single play/pause button
+* Added --bind option to bind to a specific IP Address on the host
 
 ## 1.0.3
 
