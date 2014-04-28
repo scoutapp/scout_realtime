@@ -2,7 +2,7 @@
 
 body {
 	margin: 0;
-	font-family: "Helvetica Neue","Lucida Grande", sans-serif; 
+	font-family: "Helvetica Neue","Lucida Grande", sans-serif;
 	font-size: 12px;
 }
 
@@ -106,10 +106,11 @@ svg .line {
 #toggle img {
 	padding-top: 15px;
 	vertical-align: middle;
+	opacity: 0.3;
 }
 
 #toggle .disabled img {
-	opacity: 0.3;
+	opacity: 0;
 }
 
 /* sidebar */
@@ -197,14 +198,14 @@ svg .line {
 
 #main_container > tbody > tr > td#overview_charts{
 	padding-top: 25px;
-	padding-right: 0; /* svg charts have a 30px margin - in effect, this ends up applying the 30px right margin */ 
+	padding-right: 0; /* svg charts have a 30px margin - in effect, this ends up applying the 30px right margin */
 	background: #FCF8F6;
 	border-bottom: 1px solid #E1E1E1;
 }
 
 .overview_chart_container {
 	display: inline-block;
-	width: 49.5%;	
+	width: 49.5%;
 }
 
 .overview_chart_container .chart_container {
@@ -278,7 +279,7 @@ svg .line {
 
 .chart.overview_chart {
   margin-left: -30px; /* chart has a 30px left margin */
-  margin-top: -15px; /* accounts for y-axis value. removing spacing btw h3 and chart so mouseover doesn't have a dead area */  
+  margin-top: -15px; /* accounts for y-axis value. removing spacing btw h3 and chart so mouseover doesn't have a dead area */
 	height: 101px;
 }
 
