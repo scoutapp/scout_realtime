@@ -5,10 +5,11 @@ module Scout
       TTL=60 # time in seconds for collectors to cache slow system commands
       LOG_NAME="realtime.log"
 
-      attr_accessor :running, :runner, :stats_thread
+      attr_accessor :running, :runner, :stats_thread, :auth_object
 
       # opts: {:port=>xxx}
       def initialize(opts={})
+        @auth_object=opts[:auth_object]
         @port=opts[:port]
         Scout::Realtime::logger=Logger.new(STDOUT)
         @stats_thread = Thread.new {}
