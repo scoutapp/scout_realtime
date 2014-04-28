@@ -3,6 +3,7 @@
 * Added hostname to title
 * Single play/pause button
 * Added --bind option to bind to a specific IP Address on the host
+* Updating server_metrics dependency to 1.2.4
 
 ## 1.0.3
 
