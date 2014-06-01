@@ -39,7 +39,7 @@ svg .line {
 
 #main_container {
 	border-top: 7px solid #00A3CC; /* blue */
-	min-width: 960px;
+	min-width: 960px; 
 	width: 100%;
 	margin:0;
 	border-collapse: collapse;
@@ -391,4 +391,94 @@ table#processes {
 
 #processes .latest_value, #processes .chart_info {
 	padding-left: 10px;
+}
+
+@media screen and (max-width:1024px) {
+	#main_container {
+		min-width: 100%;
+	}
+
+	#main_container #header {
+		display: block;
+		width: 100%;
+		z-index: 2;
+	}
+
+	#toggle #report-time {
+		right:130px;
+	}
+
+	#sidebar_top {
+		display: block;
+		right: 0;
+		z-index: 1;
+		width: 100%;
+		text-align: center;
+	}
+
+	#sidebar_top div.info {
+		width: 25%;
+		min-width: 200px;
+		display: inline-block;
+		padding-bottom:10px;
+		margin:10px 0;
+	}
+
+	#sidebar_top div.info#hostname_info {
+		clear: both;
+		width: 95%;
+		float: right;
+		text-align: center;
+		margin: 0;
+		padding:15px;
+	}
+
+	#hostname {
+		margin-bottom:15px;
+	}
+
+	#sidebar_top div.info #os_info {
+		margin-left:25px;
+	}
+
+	#sidebar_top div.info .value {
+		display: inline-block;
+	}
+
+	#main_container > tbody > tr > td#processes_container {
+		display: block;
+	}
+
+	#sidebar_bottom {
+		display: block;
+		z-index: 1;
+		width: 100%;
+		padding: 15px 0;
+		text-align: center;
+	}
+
+	#processes td {
+		padding: 15px 5px !important;
+	}
+
+	td#processes_container h2 {
+		padding-left: 10px;
+	}
+
+}
+
+@media screen and (max-width: 750px) {
+	#main_container > tbody > tr > td#processes_container, #main_container > tbody > tr > td:first-child {
+		padding:30px 0;
+	}
+
+	.overview_chart_container {
+		width: 75% !important;
+		margin: 0 auto !important;
+		display: block;
+	}
+
+	#report-time {
+		display: none !important;
+	}
 }
