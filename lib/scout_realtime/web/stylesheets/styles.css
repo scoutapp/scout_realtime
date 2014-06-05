@@ -39,7 +39,7 @@ svg .line {
 
 #main_container {
 	border-top: 7px solid #00A3CC; /* blue */
-	min-width: 960px; 
+	min-width: 960px;
 	width: 100%;
 	margin:0;
 	border-collapse: collapse;
