@@ -1,3 +1,7 @@
+## 1.0.5
+
+* Updating server_metrics dependency to 1.2.4 to monitor more network interfaces.
+
 ## 1.0.4
 
 * Added hostname to title
